@@ -68,7 +68,7 @@ const PRESS_ICON_SRCS = [
 
 const STORAGE_KEYS = {
   language: "dao-way-landing-language",
-  theme: "dao-way-landing-theme",
+  theme: "dao-way-landing-theme-default-dark",
 };
 
 // Journey path in hero coordinate system (0–100% of full hero width × height)
