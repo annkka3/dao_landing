@@ -1,0 +1,17 @@
+export const ru = {
+  app_title: "Crypto Reality: Выживи до пятницы",
+  scaffold_message: "Mini App готов к MVP-потоку.",
+  disclaimer_ack: "Понятно, это игра",
+  start_game: "Начать игру",
+  start_season: "Начать сезон",
+  continue: "Продолжить",
+  create_room: "Создать комнату",
+  join_room: "Присоединиться",
+  choose_archetype: "Выбери архетип",
+  current_window: "Текущее окно",
+  go_to_event: "Перейти к событию",
+  mixed_outcome: "Смешанный исход",
+  accept: "Принять",
+  decline: "Не согласен",
+  important: "Важно",
+} as const;

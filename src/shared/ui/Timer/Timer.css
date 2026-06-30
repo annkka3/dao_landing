@@ -1,0 +1,104 @@
+.ui-event-timer {
+  --timer-tone: var(--color-state-success);
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  gap: var(--space-10, 10px);
+  border: 1px solid color-mix(in srgb, var(--timer-tone), transparent 42%);
+  border-radius: var(--radius-s);
+  padding: var(--space-8) var(--space-12);
+  color: var(--timer-tone);
+  background: color-mix(in srgb, var(--timer-tone), transparent 92%);
+}
+
+.ui-event-timer--warning {
+  --timer-tone: var(--color-state-warning);
+}
+
+.ui-event-timer--danger {
+  --timer-tone: var(--color-state-danger);
+}
+
+.ui-event-timer--success {
+  --timer-tone: var(--color-state-success);
+}
+
+.ui-event-timer--locked,
+.ui-event-timer--expired {
+  --timer-tone: var(--color-state-neutral);
+}
+
+.ui-event-timer__icon {
+  width: 22px;
+  height: 22px;
+  border: 2px solid currentColor;
+  border-radius: var(--radius-round);
+}
+
+.ui-event-timer__content {
+  display: grid;
+  gap: 2px;
+}
+
+.ui-event-timer__value {
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ui-event-timer__label {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.ui-circular-timer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--color-game-bonus);
+}
+
+.ui-circular-timer__svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ui-circular-timer__track,
+.ui-circular-timer__progress {
+  fill: none;
+  stroke-width: 8;
+}
+
+.ui-circular-timer__track {
+  stroke: rgba(100, 116, 139, 0.2);
+}
+
+.ui-circular-timer__progress {
+  stroke: currentColor;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.48));
+  transition: stroke-dashoffset 180ms ease;
+}
+
+.ui-circular-timer__content {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+}
+
+.ui-circular-timer__value {
+  color: var(--color-text-primary);
+  font-family: var(--font-numeric);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.ui-circular-timer__label {
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}

@@ -1,0 +1,15 @@
+.season-summary .ui-card__body {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.season-summary__item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+  color: var(--color-text-secondary);
+}
+
+.season-summary__item strong {
+  color: var(--color-text-primary);
+}

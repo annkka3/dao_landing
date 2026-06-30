@@ -1,0 +1,79 @@
+.game-choice-list {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.game-choice-button {
+  --choice-accent: var(--color-game-bonus);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 64px;
+  gap: var(--space-12);
+  border: 1px solid color-mix(in srgb, var(--choice-accent), transparent 42%);
+  border-radius: var(--radius-m);
+  padding: var(--space-12);
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--choice-accent), transparent 92%);
+  cursor: pointer;
+  text-align: left;
+}
+
+.game-choice-button--compact {
+  min-height: var(--touch-target-min);
+  padding: var(--space-8) var(--space-12);
+}
+
+.game-choice-button--selected {
+  --choice-accent: var(--color-game-rare);
+  box-shadow: 0 0 0 1px var(--choice-accent), 0 0 16px rgba(168, 85, 247, 0.38);
+}
+
+.game-choice-button--submitted,
+.game-choice-button--disabled,
+.game-choice-button--locked {
+  --choice-accent: var(--color-state-neutral);
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
+.game-choice-button--dangerous {
+  --choice-accent: var(--color-state-danger);
+}
+
+.game-choice-button--bonus {
+  --choice-accent: var(--color-state-warning);
+}
+
+.game-choice-button__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--choice-accent);
+}
+
+.game-choice-button__content {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.game-choice-button__title {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.game-choice-button__description {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.game-choice-button__meta {
+  color: var(--choice-accent);
+  font-family: var(--font-numeric);
+  font-size: 0.8125rem;
+}

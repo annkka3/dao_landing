@@ -1,0 +1,103 @@
+.ui-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--layout-safe-padding);
+}
+
+.ui-modal__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay-modal);
+}
+
+.ui-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100vw - 32px), var(--layout-modal-max-width));
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  border-radius: var(--radius-m);
+  padding: var(--layout-modal-padding);
+  color: var(--color-text-primary);
+  background: rgba(11, 15, 20, 0.96);
+  box-shadow: var(--shadow-modal);
+  text-align: center;
+}
+
+@media (max-width: 374px) {
+  .ui-modal__panel {
+    width: min(calc(100vw - 24px), 336px);
+    padding: var(--space-16);
+  }
+}
+
+.ui-modal__close {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  display: grid;
+  place-items: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  border: 0;
+  color: var(--color-text-muted);
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.ui-modal__icon {
+  display: grid;
+  place-items: center;
+  margin: 0 auto var(--space-12);
+  width: 48px;
+  height: 48px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-round);
+}
+
+.ui-modal__icon-warning,
+.ui-modal__icon-danger {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.ui-modal__icon-warning {
+  color: var(--color-state-warning);
+}
+
+.ui-modal__icon-danger {
+  color: var(--color-state-danger);
+}
+
+.ui-modal__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ui-modal__body {
+  margin-top: var(--space-12);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.ui-modal__footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+  margin-top: var(--space-20);
+}
+
+.ui-modal__footer .ui-button {
+  height: 48px;
+}

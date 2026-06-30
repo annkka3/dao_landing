@@ -1,0 +1,126 @@
+{
+  "color": {
+    "background": {
+      "primary": { "value": "#0B0F14" },
+      "secondary": { "value": "#11161F" },
+      "tertiary": { "value": "#151B25" }
+    },
+    "surface": {
+      "card": { "value": "#161C27" },
+      "elevated": { "value": "#1E2431" },
+      "input": { "value": "#121823" },
+      "overlay": { "value": "#0B0F14CC" }
+    },
+    "text": {
+      "primary": { "value": "#F5F7FA" },
+      "secondary": { "value": "#B8BCC9" },
+      "muted": { "value": "#7A8596" },
+      "disabled": { "value": "#4E5768" },
+      "inverse": { "value": "#0B0F14" }
+    },
+    "border": {
+      "default": { "value": "#242A36" },
+      "strong": { "value": "#3C3C4D" },
+      "divider": { "value": "#1F2633" }
+    },
+    "overlay": {
+      "scrim": { "value": "#0B0F14CC" },
+      "modal": { "value": "#0B0F14E6" }
+    },
+    "line": {
+      "focus": { "value": "#3A8CFF" }
+    },
+    "link": { "value": "#4EA1FF" },
+    "state": {
+      "success": { "value": "#22C55E" },
+      "successDark": { "value": "#16A34A" },
+      "warning": { "value": "#F59E0B" },
+      "warningDark": { "value": "#B45309" },
+      "danger": { "value": "#EF4444" },
+      "dangerDark": { "value": "#B91C1C" },
+      "info": { "value": "#3882F6" },
+      "neutral": { "value": "#64748B" }
+    },
+    "game": {
+      "fomo": { "value": "#FF2ED6" },
+      "rekt": { "value": "#FF3B30" },
+      "bonus": { "value": "#00E5FF" },
+      "rare": { "value": "#A855F7" },
+      "legendary": { "value": "#FFD23F" },
+      "locked": { "value": "#384252" },
+      "disabled": { "value": "#2A303C" }
+    },
+    "stats": {
+      "bankroll": { "value": "#22C55E" },
+      "reputation": { "value": "#3882F6" },
+      "stress": { "value": "#EF4444" },
+      "fomo": { "value": "#FF2ED6" },
+      "risk": { "value": "#F59E0B" },
+      "discipline": { "value": "#00E5FF" },
+      "degenIndex": { "value": "#A855F7" }
+    },
+    "archetypeAccents": {
+      "riskManager": { "value": "#3A8CFF" },
+      "memeDegen": { "value": "#39FF14" },
+      "onchainDetective": { "value": "#00D4FF" },
+      "leverageCowboy": { "value": "#FFBA00" },
+      "hodlMonk": { "value": "#FFD23F" },
+      "airdropFarmer": { "value": "#22E6B3" },
+      "moonProphet": { "value": "#B84DFF" },
+      "capitulationDoomer": { "value": "#FF3B30" }
+    },
+    "fx": {
+      "glowSuccess": { "value": "#22C55E" },
+      "glowWarning": { "value": "#F59E0B" },
+      "glowDanger": { "value": "#EF4444" },
+      "glowBonus": { "value": "#00E5FF" },
+      "glowPurple": { "value": "#A855F7" }
+    }
+  },
+  "spacing": {
+    "4": { "value": "4px" },
+    "8": { "value": "8px" },
+    "12": { "value": "12px" },
+    "16": { "value": "16px" },
+    "20": { "value": "20px" },
+    "24": { "value": "24px" },
+    "32": { "value": "32px" },
+    "40": { "value": "40px" },
+    "48": { "value": "48px" },
+    "64": { "value": "64px" },
+    "80": { "value": "80px" }
+  },
+  "radius": {
+    "xs": { "value": "4px" },
+    "s": { "value": "8px" },
+    "m": { "value": "12px" },
+    "l": { "value": "16px" },
+    "xl": { "value": "24px" },
+    "round": { "value": "999px" }
+  },
+  "shadow": {
+    "card": { "value": "0 4px 16px rgba(0, 0, 0, 0.35)" },
+    "modal": { "value": "0 20px 60px rgba(0, 0, 0, 0.6)" },
+    "elevated": { "value": "0 8px 24px rgba(0, 0, 0, 0.45)" },
+    "button": { "value": "0 4px 12px rgba(0, 0, 0, 0.3)" }
+  },
+  "glow": {
+    "active": { "value": "0 0 2px rgba(58, 140, 255, 0.25), 0 0 16px rgba(58, 140, 255, 0.45)" },
+    "warning": { "value": "0 0 2px rgba(245, 158, 11, 0.25), 0 0 16px rgba(245, 158, 11, 0.45)" },
+    "danger": { "value": "0 0 2px rgba(239, 68, 68, 0.25), 0 0 16px rgba(239, 68, 68, 0.45)" },
+    "result": { "value": "0 0 24px rgba(0, 229, 255, 0.6)" }
+  },
+  "layout": {
+    "baseFrameWidth": { "value": "390px" },
+    "baseFrameHeight": { "value": "844px" },
+    "compactCheckWidth": { "value": "360px" },
+    "compactCheckHeight": { "value": "800px" },
+    "largeCheckWidth": { "value": "430px" },
+    "largeCheckHeight": { "value": "932px" },
+    "safePadding": { "value": "16px" },
+    "safePaddingCompact": { "value": "12px" },
+    "headerHeight": { "value": "56px" },
+    "bottomStickyHeight": { "value": "72px" },
+    "touchTargetMin": { "value": "44px" }
+  }
+}

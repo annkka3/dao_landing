@@ -1,0 +1,4 @@
+.stats-panel .ui-card__body {
+  display: grid;
+  gap: var(--space-4);
+}

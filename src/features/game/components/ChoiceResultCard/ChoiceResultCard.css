@@ -1,0 +1,72 @@
+.choice-result-card {
+  --result-accent: var(--color-state-warning);
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--result-accent), transparent 42%);
+  border-radius: var(--radius-l);
+  background: rgba(11, 15, 20, 0.9);
+  box-shadow: var(--shadow-elevated);
+}
+
+.choice-result-card--positive {
+  --result-accent: var(--color-state-success);
+}
+
+.choice-result-card--negative,
+.choice-result-card--rekt {
+  --result-accent: var(--color-state-danger);
+}
+
+.choice-result-card--bonus {
+  --result-accent: var(--color-game-rare);
+}
+
+.choice-result-card--missed {
+  --result-accent: var(--color-state-neutral);
+}
+
+.choice-result-card__art {
+  display: grid;
+  place-items: end center;
+  height: clamp(180px, 38vh, 320px);
+  background: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--result-accent), transparent 75%), transparent 62%);
+}
+
+.choice-result-card__art img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.choice-result-card__content {
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-16);
+}
+
+.choice-result-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.choice-result-card__header h2 {
+  margin: 0;
+  color: var(--result-accent);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.choice-result-card__summary {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.choice-result-card .game-stat-change-list {
+  width: 100%;
+  border-color: color-mix(in srgb, var(--result-accent), transparent 72%);
+}

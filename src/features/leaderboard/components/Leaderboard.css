@@ -1,0 +1,105 @@
+.leaderboard-table {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.leaderboard-row {
+  --leaderboard-accent: var(--color-game-bonus);
+  display: grid;
+  grid-template-columns: 40px 44px minmax(0, 1fr) auto auto;
+  align-items: center;
+  min-height: 64px;
+  gap: var(--space-10, 10px);
+  border: 1px solid color-mix(in srgb, var(--leaderboard-accent), transparent 70%);
+  border-radius: var(--radius-m);
+  padding: var(--space-8) var(--space-12);
+  background: rgba(11, 15, 20, 0.78);
+}
+
+.leaderboard-row--current {
+  border-color: var(--color-game-legendary);
+  box-shadow: 0 0 16px rgba(255, 210, 63, 0.28);
+}
+
+.leaderboard-row--rekt {
+  --leaderboard-accent: var(--color-state-danger);
+  opacity: 0.72;
+}
+
+.leaderboard-row--loading {
+  grid-template-columns: none;
+  min-height: 64px;
+  background: linear-gradient(90deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.28), rgba(100, 116, 139, 0.12));
+  background-size: 220% 100%;
+  animation: leaderboard-shimmer 1.4s linear infinite;
+}
+
+.leaderboard-row__rank {
+  color: var(--leaderboard-accent);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.leaderboard-row__avatar {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--leaderboard-accent);
+  border-radius: var(--radius-s);
+  object-fit: cover;
+}
+
+.leaderboard-row__identity {
+  min-width: 0;
+}
+
+.leaderboard-row__name {
+  overflow: hidden;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-row__archetype {
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-row__score {
+  color: var(--color-text-primary);
+  font-weight: 800;
+}
+
+.leaderboard-row__delta {
+  color: var(--color-state-success);
+  font-size: 0.75rem;
+}
+
+.current-user-rank {
+  border-radius: var(--radius-m);
+}
+
+@keyframes leaderboard-shimmer {
+  to {
+    background-position: -220% 0;
+  }
+}
+
+@media (max-width: 374px) {
+  .leaderboard-row {
+    grid-template-columns: 32px 38px minmax(0, 1fr) auto;
+  }
+
+  .leaderboard-row__avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  .leaderboard-row__delta {
+    display: none;
+  }
+}

@@ -1,0 +1,270 @@
+.equipped-profile-frame {
+  --market-frame-color: rgba(0, 229, 255, 0.22);
+  position: relative;
+  border-radius: 22px;
+  padding: 2px;
+  background: transparent;
+}
+
+.equipped-profile-frame--sm { border-radius: 999px; padding: 0; }
+.equipped-profile-frame--md { border-radius: 20px; }
+.equipped-profile-frame--lg { border-radius: 24px; padding: 3px; }
+
+.equipped-profile-frame[data-equipped-frame] {
+  background:
+    radial-gradient(circle at 18% 0%, var(--market-frame-color), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--market-frame-color), #ffffff 18%), rgba(255, 210, 63, 0.42), rgba(0, 229, 255, 0.42));
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--market-frame-color), transparent 68%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.equipped-profile-frame--sm[data-equipped-frame] {
+  background: transparent;
+  box-shadow: none;
+}
+
+.equipped-profile-frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+.equipped-profile-frame__asset {
+  position: absolute;
+  inset: -7%;
+  z-index: 2;
+  width: 114%;
+  height: 114%;
+  object-fit: contain;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 0 12px color-mix(in srgb, var(--market-frame-color), transparent 45%))
+    drop-shadow(0 0 22px rgba(255, 210, 63, 0.18));
+}
+
+.equipped-profile-frame--sm .equipped-profile-frame__asset {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: 165%;
+  height: 165%;
+  transform: translate(-50%, -50%);
+}
+
+.equipped-profile-frame--lg .equipped-profile-frame__asset {
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  opacity: 0.92;
+}
+
+.equipped-profile-frame--sm > * {
+  border-radius: inherit;
+}
+
+.market-frame--survivor_neon_frame,
+.market-frame--dao_survivor_frame {
+  --market-frame-color: rgba(61, 255, 220, 0.72);
+}
+
+.market-frame--risk_gold_frame,
+.market-frame--risk_manager_frame {
+  --market-frame-color: rgba(255, 211, 106, 0.82);
+}
+
+.market-frame--degen_glitch_frame,
+.market-frame--meme_degen_frame {
+  --market-frame-color: rgba(184, 77, 255, 0.82);
+}
+
+.market-frame--doom_red_frame,
+.market-frame--capitulation_doomer_frame {
+  --market-frame-color: rgba(255, 72, 72, 0.72);
+}
+
+.market-frame--onchain_detective_frame {
+  --market-frame-color: rgba(36, 142, 255, 0.78);
+}
+
+.market-frame--hodl_temple_frame,
+.market-frame--hodl_monk_frame {
+  --market-frame-color: rgba(255, 181, 60, 0.78);
+}
+
+.market-frame--airdrop_farmer_frame {
+  --market-frame-color: rgba(34, 230, 179, 0.78);
+}
+
+.market-frame--moon_prophet_frame {
+  --market-frame-color: rgba(124, 255, 46, 0.76);
+}
+
+.market-frame--liquidity_whale_frame {
+  --market-frame-color: rgba(63, 226, 255, 0.78);
+}
+
+.market-frame--dao_founder_frame {
+  --market-frame-color: rgba(255, 218, 102, 0.9);
+}
+
+.equipped-room-theme-shell {
+  border-radius: inherit;
+}
+
+.equipped-room-theme-shell[data-equipped-room-theme] {
+  --market-room-theme-color: rgba(0, 229, 255, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 0%, var(--market-room-theme-color), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01));
+  box-shadow: 0 0 26px color-mix(in srgb, var(--market-room-theme-color), transparent 78%);
+}
+
+.market-room-theme--dao_command_center,
+.market-room-theme--dao-center,
+.market-room-theme--dao_center {
+  --market-room-theme-color: rgba(35, 235, 255, 0.22);
+}
+
+.market-room-theme--degen_basement {
+  --market-room-theme-color: rgba(172, 83, 255, 0.24);
+}
+
+.market-room-theme--airdrop_farmer {
+  --market-room-theme-color: rgba(34, 230, 179, 0.24);
+}
+
+.market-room-theme--leverage_arena {
+  --market-room-theme-color: rgba(255, 186, 0, 0.24);
+}
+
+.market-room-theme--liquidity_aquarium {
+  --market-room-theme-color: rgba(63, 226, 255, 0.24);
+}
+
+.market-room-theme--moon_launch_deck {
+  --market-room-theme-color: rgba(124, 255, 46, 0.22);
+}
+
+.market-room-theme--onchain_investigation_lab {
+  --market-room-theme-color: rgba(36, 142, 255, 0.24);
+}
+
+.market-room-theme--hodl_temple {
+  --market-room-theme-color: rgba(255, 211, 106, 0.22);
+}
+
+.market-room-theme--doom_shelter {
+  --market-room-theme-color: rgba(255, 72, 72, 0.2);
+}
+
+.market-share-card--gold_survivor,
+.market-share-card--gold-final,
+.market-share-card--legendary_gold {
+  --market-share-template-color: rgba(255, 210, 63, 0.34);
+}
+
+.market-share-card--cyan_terminal,
+.market-share-card--dao_terminal {
+  --market-share-template-color: rgba(0, 229, 255, 0.3);
+}
+
+.market-share-card--degen_glitch {
+  --market-share-template-color: rgba(184, 77, 255, 0.34);
+}
+
+.equipped-market-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.58rem;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.equipped-market-badge--active {
+  border-color: rgba(0, 229, 255, 0.24);
+  background:
+    linear-gradient(90deg, rgba(255, 210, 63, 0.08), rgba(0, 229, 255, 0.08)),
+    rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.equipped-market-badge span {
+  color: rgba(255, 255, 255, 0.46);
+  white-space: nowrap;
+}
+
+.equipped-market-badge strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-game-bonus, #00e5ff);
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+}
+
+.equipped-market-badge button {
+  border: 0;
+  background: transparent;
+  color: #ffd23f;
+  font: inherit;
+  font-weight: 800;
+  padding: 0;
+}
+
+.market-meme-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(184, 77, 255, 0.2);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(184, 77, 255, 0.16), transparent 40%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+    rgba(8, 4, 16, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.market-meme-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(184, 77, 255, 0.32);
+  background: rgba(184, 77, 255, 0.08);
+  color: #b84dff;
+  flex-shrink: 0;
+}
+
+.market-meme-card__copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.market-meme-card__copy strong {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.market-meme-card__copy span {
+  font-size: 0.62rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.52);
+}

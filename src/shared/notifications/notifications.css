@@ -1,0 +1,116 @@
+.app-toast-stack {
+  position: fixed;
+  z-index: 1200;
+  top: calc(env(safe-area-inset-top, 0px) + 12px);
+  left: 50%;
+  display: grid;
+  width: min(358px, calc(100vw - 24px));
+  gap: 8px;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+@keyframes app-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.app-toast {
+  --toast-accent: var(--color-brand-gold);
+
+  display: grid;
+  grid-template-columns: 30px 1fr 28px;
+  align-items: start;
+  gap: 9px;
+  min-height: 64px;
+  padding: 12px 10px 12px 12px;
+  overflow: hidden;
+  color: var(--color-text-primary);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--toast-accent), transparent 88%), transparent 58%),
+    rgba(15, 20, 29, 0.96);
+  border: 1px solid color-mix(in srgb, var(--toast-accent), transparent 35%);
+  border-radius: 12px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 20px color-mix(in srgb, var(--toast-accent), transparent 76%);
+  backdrop-filter: blur(16px);
+  pointer-events: auto;
+  animation: app-toast-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-toast--success {
+  --toast-accent: var(--color-state-success);
+}
+
+.app-toast--info {
+  --toast-accent: var(--color-game-bonus);
+}
+
+.app-toast--warning {
+  --toast-accent: var(--color-state-warning);
+}
+
+.app-toast--error {
+  --toast-accent: var(--color-state-danger);
+}
+
+.app-toast__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid color-mix(in srgb, var(--toast-accent), transparent 40%);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--toast-accent), transparent 82%);
+  color: var(--toast-accent);
+  flex-shrink: 0;
+}
+
+.app-toast__body {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.app-toast__title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  color: var(--toast-accent);
+  text-transform: uppercase;
+}
+
+.app-toast__message {
+  margin-top: 4px;
+  font-size: 0.66rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.app-toast__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.app-toast__close:active {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}

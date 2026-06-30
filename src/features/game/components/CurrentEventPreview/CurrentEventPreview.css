@@ -1,0 +1,19 @@
+.current-event-preview .ui-card__body {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.current-event-preview h3 {
+  margin: 0;
+}
+
+.current-event-preview__timer {
+  color: var(--color-state-warning);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.current-event-preview__description {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}

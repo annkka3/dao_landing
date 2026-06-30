@@ -1,0 +1,700 @@
+/* ── Root ── */
+.ach {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(0, 229, 255, 0.09), transparent 34%),
+    radial-gradient(circle at 14% 14%, rgba(255, 186, 0, 0.055), transparent 28%),
+    #000002;
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  overflow-y: auto;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+/* ── Header ── */
+.ach__header {
+  padding: 12px 14px 0;
+}
+
+.ach__header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ach__header-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(2, 10, 16, 0.58);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Frame ── */
+.ach__frame {
+  padding: 8px 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Page title (unified across screens) ── */
+.ach__title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.ach__title-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-game-bonus), transparent);
+  opacity: 0.4;
+}
+
+.ach__page-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.ach__page-sub {
+  text-align: center;
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 0 14px;
+}
+
+/* ── Player card ── */
+.ach__player-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.016)),
+    radial-gradient(circle at 10% 0%, rgba(0, 229, 255, 0.13), transparent 42%),
+    rgba(2, 10, 16, 0.58);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 16px;
+  padding: 14px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.ach__player-card::before,
+.ach__legendary-card::before,
+.ach__card::before,
+.ach__recent-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.11), transparent 32%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.016) 0 1px, transparent 1px 5px);
+  opacity: 0.34;
+}
+
+.ach__player-card > *,
+.ach__legendary-card > *,
+.ach__card > *,
+.ach__recent-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ach__avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ach__avatar-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    var(--color-game-bonus) 0% 37%,
+    rgba(255,255,255,0.08) 37% 100%
+  );
+  flex-shrink: 0;
+}
+
+.ach__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  background: #000002;
+}
+
+.ach__player-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ach__player-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ach__player-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.ach__edit-btn {
+  background: transparent;
+  border: 0;
+  padding: 2px;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.ach__player-archetype {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ach__player-archetype-name {
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.ach__player-level {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-game-legendary);
+  background: rgba(255, 210, 63, 0.1);
+  border: 1px solid rgba(255, 210, 63, 0.3);
+  border-radius: 5px;
+  padding: 2px 7px;
+  align-self: flex-start;
+}
+
+.ach__player-xp-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.ach__player-xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffba00, #ffd23f);
+  border-radius: 2px;
+}
+
+.ach__player-ach-text {
+  font-size: 0.52rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 1px;
+}
+
+/* Circle progress (right side of card) */
+.ach__circle-progress {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ach__circle-svg {
+  transform: rotate(-90deg);
+}
+
+.ach__circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+}
+
+.ach__circle-fill {
+  fill: none;
+  stroke: var(--color-game-bonus);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.ach__circle-text-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.ach__circle-container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.ach__circle-val {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.ach__circle-label {
+  font-size: 0.36rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ach__circle-trophy {
+  color: var(--color-game-legendary);
+  opacity: 0.75;
+}
+
+/* ── Filter tabs ── */
+.ach__filters {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.ach__filters::-webkit-scrollbar { display: none; }
+
+.ach__filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+    rgba(2, 10, 16, 0.52);
+  color: rgba(255, 255, 255, 0.58);
+  transition: all 100ms ease;
+}
+
+.ach__filter-btn--active {
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.18), rgba(34, 197, 94, 0.05));
+  border-color: rgba(34, 197, 94, 0.45);
+  color: var(--color-state-success);
+}
+
+/* ── Legendary card (full-width) ── */
+.ach__legendary-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.016)),
+    radial-gradient(circle at 12% 8%, rgba(255, 186, 0, 0.16), transparent 42%),
+    rgba(15, 10, 2, 0.56);
+  border: 1px solid rgba(255, 186, 0, 0.4);
+  border-radius: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.24),
+    0 0 24px rgba(255, 186, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.ach__hex-badge {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ach-color, var(--color-game-bonus));
+}
+
+.ach__hex-badge--lg {
+  width: 68px;
+  height: 76px;
+}
+
+.ach__hex-badge--sm {
+  width: 44px;
+  height: 50px;
+}
+
+.ach__legendary-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ach__rarity-label {
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.ach__legendary-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #ffba00;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.ach__legendary-desc {
+  font-size: 0.58rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+}
+
+.ach__legendary-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.ach__progress-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.52rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ach__unlocked-badge {
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-state-success);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+
+.ach__rarity-badge {
+  font-size: 0.44rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 5px;
+  padding: 3px 8px;
+  border: 1px solid;
+}
+
+/* ── Grid ── */
+.ach__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ach__card {
+  --ach-color: var(--color-game-bonus);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+    rgba(2, 10, 16, 0.54);
+  border: 1px solid rgba(0, 229, 255, 0.11);
+  border-radius: 14px;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.ach__card--unlocked {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.064), rgba(255, 255, 255, 0.014)),
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--ach-color), transparent 82%), transparent 42%),
+    rgba(2, 10, 16, 0.56);
+  border-color: color-mix(in srgb, var(--ach-color), transparent 68%);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.22),
+    0 0 20px color-mix(in srgb, var(--ach-color), transparent 88%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.ach__card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.ach__card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ach__card-title {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.ach__card-desc {
+  font-size: 0.52rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.ach__card-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.ach__card-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.ach__category-badge {
+  font-size: 0.44rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(0, 229, 255, 0.14);
+  border-radius: 5px;
+  padding: 3px 7px;
+  background: rgba(0, 229, 255, 0.04);
+}
+
+.ach__card-progress-text {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.48rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.ach__progress-bar-wrap {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 4px;
+}
+
+.ach__progress-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.ach__lock-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.ach__locked-badge {
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+
+/* ── Section label ── */
+.ach__section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ach__section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 186, 0, 0.2), transparent);
+}
+
+.ach__section-diamond {
+  color: #ffba00;
+  opacity: 0.4;
+  font-size: 7px;
+}
+
+.ach__section-text {
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 186, 0, 0.65);
+  white-space: nowrap;
+}
+
+/* ── Recent unlocks ── */
+.ach__recent-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+    rgba(2, 10, 16, 0.54);
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.ach__recent-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ach__recent-row:last-child {
+  border-bottom: none;
+}
+
+.ach__recent-icon {
+  width: 36px;
+  height: 40px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ach__recent-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ach__recent-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  letter-spacing: 0.03em;
+}
+
+.ach__recent-desc {
+  font-size: 0.52rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ach__recent-when {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  flex-shrink: 0;
+}
+
+.ach__recent-day {
+  font-size: 0.44rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.ach__recent-time {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.ach__profile-btn {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 229, 255, 0.46);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 46%),
+    radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.18), transparent 64%),
+    rgba(0, 229, 255, 0.045);
+  color: var(--color-game-bonus);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  box-shadow:
+    0 0 22px rgba(0, 229, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.ach__profile-btn:active {
+  opacity: 0.86;
+  transform: translateY(1px);
+}

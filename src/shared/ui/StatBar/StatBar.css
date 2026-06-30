@@ -1,0 +1,122 @@
+.ui-stat-row {
+  display: grid;
+  grid-template-columns: minmax(92px, 1fr) 56px minmax(96px, 1.2fr) 48px;
+  align-items: center;
+  min-height: 32px;
+  gap: var(--space-8);
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.ui-stat-row[data-hidden] {
+  opacity: 0.42;
+}
+
+.ui-stat-row__label {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: var(--space-8);
+}
+
+.ui-stat-row__label svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.ui-stat-row__value,
+.ui-stat-row__change {
+  color: var(--color-text-primary);
+  text-align: right;
+}
+
+.ui-stat-row__bar {
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-round);
+  background: rgba(100, 116, 139, 0.18);
+}
+
+.ui-stat-row__fill {
+  display: block;
+  height: 100%;
+  min-width: 3px;
+  border-radius: inherit;
+}
+
+.ui-stat-row__fill--bankroll,
+.ui-stat-pill--bankroll {
+  --stat-tone: var(--color-stat-bankroll);
+}
+
+.ui-stat-row__fill--reputation,
+.ui-stat-pill--reputation {
+  --stat-tone: var(--color-stat-reputation);
+}
+
+.ui-stat-row__fill--stress,
+.ui-stat-pill--stress {
+  --stat-tone: var(--color-stat-stress);
+}
+
+.ui-stat-row__fill--fomo,
+.ui-stat-pill--fomo {
+  --stat-tone: var(--color-stat-fomo);
+}
+
+.ui-stat-row__fill--risk,
+.ui-stat-pill--risk {
+  --stat-tone: var(--color-stat-risk);
+}
+
+.ui-stat-row__fill--discipline,
+.ui-stat-pill--discipline {
+  --stat-tone: var(--color-stat-discipline);
+}
+
+.ui-stat-row__fill--degenIndex,
+.ui-stat-pill--degenIndex {
+  --stat-tone: var(--color-stat-degen-index);
+}
+
+.ui-stat-row__fill {
+  background: var(--stat-tone);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--stat-tone), transparent 45%);
+}
+
+.ui-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  gap: var(--space-6, 6px);
+  border: 1px solid color-mix(in srgb, var(--stat-tone), transparent 45%);
+  border-radius: var(--radius-s);
+  padding: 0 var(--space-8);
+  color: var(--stat-tone);
+  background: color-mix(in srgb, var(--stat-tone), transparent 88%);
+  font-size: 0.75rem;
+}
+
+.ui-stat-pill svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-stat-pill__label {
+  color: var(--color-text-secondary);
+}
+
+.ui-stat-pill__value {
+  font-weight: 700;
+}
+
+@media (max-width: 374px) {
+  .ui-stat-row {
+    grid-template-columns: minmax(86px, 1fr) 48px minmax(76px, 1fr);
+  }
+
+  .ui-stat-row__change {
+    display: none;
+  }
+}

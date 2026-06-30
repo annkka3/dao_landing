@@ -1,0 +1,94 @@
+.final-result-card {
+  --final-accent: var(--color-state-warning);
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--final-accent), transparent 42%);
+  border-radius: var(--radius-l);
+  background: rgba(11, 15, 20, 0.9);
+  box-shadow: var(--shadow-elevated);
+}
+
+.final-result-card--winner,
+.final-result-card--top {
+  --final-accent: var(--color-game-legendary);
+}
+
+.final-result-card--survived {
+  --final-accent: var(--color-state-success);
+}
+
+.final-result-card--rekt,
+.final-result-card--dnf {
+  --final-accent: var(--color-state-danger);
+}
+
+.final-result-card__hero {
+  display: grid;
+  place-items: end center;
+  height: clamp(220px, 42vh, 360px);
+  background: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--final-accent), transparent 75%), transparent 62%);
+}
+
+.final-result-card__hero img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.final-result-card__content {
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-16);
+}
+
+.final-result-card h2 {
+  margin: 0;
+  color: var(--final-accent);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.final-result-card__archetype,
+.final-result-card__rank {
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+.final-result-card__score {
+  color: var(--color-text-primary);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.final-result-card__badges,
+.final-result-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.final-result-card__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
+  margin: 0;
+}
+
+.final-result-card__stats div {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-s);
+  padding: var(--space-8);
+}
+
+.final-result-card__stats dt {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.final-result-card__stats dd {
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-primary);
+  font-weight: 700;
+}

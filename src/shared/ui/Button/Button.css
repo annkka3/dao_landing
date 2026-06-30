@@ -1,0 +1,109 @@
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+  border: 1px solid transparent;
+  border-radius: var(--radius-s);
+  padding: 0 var(--space-16);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    background 120ms ease,
+    box-shadow 120ms ease,
+    opacity 120ms ease;
+}
+
+.ui-button:active,
+.ui-button--pressed {
+  transform: translateY(1px);
+}
+
+.ui-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  transform: none;
+}
+
+.ui-button--m {
+  height: 52px;
+}
+
+.ui-button--s {
+  height: 38px;
+  min-height: var(--touch-target-min);
+  padding: 0 var(--space-12);
+  font-size: 0.6875rem;
+}
+
+.ui-button--full {
+  width: 100%;
+}
+
+.ui-button--primary {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.95), rgba(22, 163, 74, 0.7));
+  border-color: rgba(34, 197, 94, 0.72);
+  box-shadow: var(--glow-active), var(--shadow-button);
+}
+
+.ui-button--secondary {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.68);
+  color: var(--color-game-bonus);
+}
+
+.ui-button--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-game-rare);
+}
+
+.ui-button--danger {
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.4), rgba(185, 28, 28, 0.48));
+  border-color: rgba(239, 68, 68, 0.72);
+  color: #ff8d84;
+  box-shadow: var(--glow-danger), var(--shadow-button);
+}
+
+.ui-button--success {
+  border-color: rgba(34, 197, 94, 0.8);
+  color: var(--color-state-success);
+}
+
+.ui-button--danger.ui-button--danger,
+.ui-button--danger.ui-button--primary,
+.ui-button--danger.ui-button--secondary,
+.ui-button--danger.ui-button--ghost {
+  border-color: rgba(239, 68, 68, 0.82);
+}
+
+.ui-button__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-button__spinner {
+  width: 14px;
+  height: 14px;
+  margin-right: var(--space-8);
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-round);
+  animation: ui-button-spin 900ms linear infinite;
+}
+
+@keyframes ui-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

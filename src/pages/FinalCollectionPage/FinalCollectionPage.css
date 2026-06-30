@@ -1,0 +1,443 @@
+.fcoll {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(0, 229, 255, 0.09), transparent 34%),
+    radial-gradient(circle at 12% 8%, rgba(255, 210, 63, 0.055), transparent 28%),
+    #000002;
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  overflow-y: auto;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.fcoll__header {
+  padding: 12px 14px 0;
+}
+
+.fcoll__header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.fcoll__frame {
+  width: min(100%, var(--layout-base-frame-width));
+  margin: 0 auto;
+  padding: 8px var(--layout-edge-gutter) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.fcoll__title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.fcoll__title-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-game-bonus), transparent);
+  opacity: 0.4;
+}
+
+.fcoll__page-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.fcoll__page-sub {
+  text-align: center;
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 0 12px;
+}
+
+.fcoll__intro-card,
+.fcoll__empty,
+.fcoll-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-sizing: border-box;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.fcoll__intro-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.014)),
+    radial-gradient(circle at 12% 0%, rgba(0, 229, 255, 0.14), transparent 42%),
+    rgba(2, 10, 16, 0.58);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.fcoll__intro-card::before,
+.fcoll__empty::before,
+.fcoll-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 32%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 5px);
+  opacity: 0.28;
+}
+
+.fcoll__intro-card > *,
+.fcoll__empty > *,
+.fcoll-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fcoll__intro-icon {
+  width: 48px;
+  height: 54px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-game-bonus);
+  clip-path: polygon(50% 0%, 96% 24%, 96% 76%, 50% 100%, 4% 76%, 4% 24%);
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 210, 63, 0.32), transparent 64%),
+    rgba(255, 210, 63, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 210, 63, 0.5),
+    0 0 16px rgba(255, 210, 63, 0.18);
+}
+
+.fcoll__intro-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.fcoll__intro-text {
+  margin: 5px 0 0;
+  font-size: 0.62rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.fcoll__empty {
+  min-height: 220px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0, 229, 255, 0.09), transparent 54%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.fcoll__empty-icon {
+  width: 68px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.36);
+  clip-path: polygon(50% 0%, 96% 24%, 96% 76%, 50% 100%, 4% 76%, 4% 24%);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.fcoll__empty h2 {
+  margin: 14px 0 4px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.fcoll__empty p {
+  max-width: 260px;
+  margin: 0;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.fcoll__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fcoll-card {
+  --fc: #00e5ff;
+  --rank: #fff;
+  min-height: 250px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--rank), transparent 60%);
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--fc), transparent 78%), transparent 40%),
+    radial-gradient(circle at 86% 6%, color-mix(in srgb, var(--rank), transparent 78%), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.066), rgba(255, 255, 255, 0.012)),
+    rgba(2, 10, 16, 0.62);
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.26),
+    0 0 24px color-mix(in srgb, var(--rank), transparent 88%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.fcoll-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 0 34%, color-mix(in srgb, var(--rank), transparent 92%) 34% 52%, transparent 52%),
+    radial-gradient(circle at 24% 52%, color-mix(in srgb, var(--fc), transparent 84%), transparent 30%);
+}
+
+.fcoll-card__top,
+.fcoll-card__hero-row,
+.fcoll-card__stats,
+.fcoll-card__details {
+  position: relative;
+  z-index: 1;
+}
+
+.fcoll-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.fcoll-card__season,
+.fcoll-card__date,
+.fcoll-card__kicker,
+.fcoll-card__stat span,
+.fcoll-card__detail span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.fcoll-card__season {
+  font-size: 0.58rem;
+  color: var(--rank);
+}
+
+.fcoll-card__date {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.fcoll-card__hero-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fcoll-card__avatar-wrap {
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(var(--fc), var(--rank), rgba(255, 255, 255, 0.08), var(--fc));
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--fc), transparent 72%),
+    0 0 22px color-mix(in srgb, var(--rank), transparent 84%);
+}
+
+.fcoll-card__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  background: #000002;
+}
+
+.fcoll-card__avatar--empty {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.fcoll-card__identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.fcoll-card__kicker {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.48rem;
+  color: color-mix(in srgb, var(--fc), white 18%);
+}
+
+.fcoll-card__identity h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.fcoll-card__identity p {
+  margin: 6px 0 0;
+  font-size: 0.58rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.fcoll-card__stats {
+  display: grid;
+  grid-template-columns: 1.15fr 0.82fr 0.82fr;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.fcoll-card__stat {
+  min-width: 0;
+  padding: 9px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+    rgba(0, 0, 2, 0.36);
+}
+
+.fcoll-card__stat span,
+.fcoll-card__detail span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.42rem;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.fcoll-card__stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  line-height: 1.1;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fcoll-card__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.fcoll-card__detail {
+  min-width: 0;
+  min-height: 62px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  background: rgba(0, 229, 255, 0.035);
+}
+
+.fcoll-card__detail strong {
+  display: block;
+  font-size: 0.58rem;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.fcoll__toggle-btn {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 210, 63, 0.34);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.012)),
+    radial-gradient(circle at 50% 0%, rgba(255, 210, 63, 0.16), transparent 64%),
+    rgba(255, 210, 63, 0.045);
+  color: var(--color-game-legendary);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  box-shadow:
+    0 0 18px rgba(255, 210, 63, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.fcoll__toggle-btn:active {
+  opacity: 0.86;
+  transform: translateY(1px);
+}
+
+.fcoll__profile-btn {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 229, 255, 0.46);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 46%),
+    radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.18), transparent 64%),
+    rgba(0, 229, 255, 0.045);
+  color: var(--color-game-bonus);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  box-shadow:
+    0 0 22px rgba(0, 229, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.fcoll__profile-btn:active {
+  opacity: 0.86;
+  transform: translateY(1px);
+}
+
+@media (max-width: 380px) {
+  .fcoll-card__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fcoll-card__stat:first-child {
+    grid-column: 1 / -1;
+  }
+}

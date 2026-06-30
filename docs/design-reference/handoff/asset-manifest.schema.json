@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crypto-reality.local/schemas/asset-manifest.schema.json",
+  "title": "Crypto Reality Asset Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "archetypes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["avatar", "hero", "card", "cutout"],
+        "additionalProperties": false,
+        "properties": {
+          "avatar": {
+            "type": "object",
+            "required": ["sm", "md", "lg"],
+            "properties": {
+              "sm": { "type": "string", "pattern": "^/assets/.+\\.webp$" },
+              "md": { "type": "string", "pattern": "^/assets/.+\\.webp$" },
+              "lg": { "type": "string", "pattern": "^/assets/.+\\.webp$" }
+            }
+          },
+          "hero": { "$ref": "#/$defs/moodSet" },
+          "card": { "$ref": "#/$defs/moodSet" },
+          "cutout": { "$ref": "#/$defs/moodSet" }
+        }
+      }
+    },
+    "shareTemplates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": ["string", "object"]
+      }
+    }
+  },
+  "$defs": {
+    "moodSet": {
+      "type": "object",
+      "required": ["neutral", "win", "rekt"],
+      "properties": {
+        "neutral": { "type": "string", "pattern": "^/assets/.+\\.webp$" },
+        "win": { "type": "string", "pattern": "^/assets/.+\\.webp$" },
+        "rekt": { "type": "string", "pattern": "^/assets/.+\\.webp$" }
+      }
+    }
+  }
+}

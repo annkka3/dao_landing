@@ -1,0 +1,60 @@
+.daily-recap-card .ui-card__body {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.daily-recap-card__hero {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  background: radial-gradient(circle at 50% 60%, rgba(168, 85, 247, 0.28), transparent 62%);
+}
+
+.daily-recap-card__hero img {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.daily-recap-card__hero div {
+  position: absolute;
+  inset: auto var(--space-12) var(--space-12);
+  text-align: center;
+}
+
+.daily-recap-card__hero span {
+  color: var(--color-game-bonus);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.daily-recap-card__hero h2 {
+  margin: var(--space-4) 0 0;
+  color: var(--color-game-rare);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.daily-recap-card blockquote,
+.daily-recap-card p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.daily-stat-summary {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.daily-nominations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}

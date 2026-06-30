@@ -1,0 +1,26 @@
+.holo-cube {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.holo-cube__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
+  animation: holo-cube-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes holo-cube-pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.holo-cube canvas {
+  display: block;
+  position: relative;
+  z-index: 1;
+}

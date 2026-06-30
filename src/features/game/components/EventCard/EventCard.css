@@ -1,0 +1,83 @@
+.game-event-card {
+  --event-accent: var(--color-game-bonus);
+  display: grid;
+  gap: var(--space-12);
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--event-accent), transparent 42%);
+  border-radius: var(--radius-m);
+  padding: var(--space-16);
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 85% 15%, color-mix(in srgb, var(--event-accent), transparent 82%), transparent 36%),
+    rgba(11, 15, 20, 0.86);
+  box-shadow: var(--shadow-card);
+}
+
+.game-event-card--completed {
+  --event-accent: var(--color-state-success);
+}
+
+.game-event-card--missed,
+.game-event-card--urgent {
+  --event-accent: var(--color-state-danger);
+}
+
+.game-event-card--locked {
+  --event-accent: var(--color-state-neutral);
+  filter: grayscale(0.7);
+  opacity: 0.62;
+}
+
+.game-event-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.game-event-card__day {
+  color: var(--event-accent);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.game-event-card h3 {
+  margin: var(--space-4) 0 0;
+  font-size: 1rem;
+}
+
+.game-event-card__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--event-accent);
+}
+
+.game-event-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.game-event-card__description {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.game-event-card__tags,
+.game-event-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.game-event-card__meta,
+.game-event-card__timer {
+  color: var(--event-accent);
+  font-size: 0.8125rem;
+}
+
+.game-event-card__action {
+  margin-top: var(--space-4);
+}

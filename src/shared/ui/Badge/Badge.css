@@ -1,0 +1,42 @@
+.ui-badge {
+  --badge-tone: var(--color-game-bonus);
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  gap: var(--space-6, 6px);
+  border: 1px solid color-mix(in srgb, var(--badge-tone), transparent 35%);
+  border-radius: var(--radius-xs);
+  padding: 0 var(--space-8);
+  color: var(--badge-tone);
+  background: color-mix(in srgb, var(--badge-tone), transparent 88%);
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ui-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ui-badge--success {
+  --badge-tone: var(--color-state-success);
+}
+
+.ui-badge--warning {
+  --badge-tone: var(--color-state-warning);
+}
+
+.ui-badge--danger {
+  --badge-tone: var(--color-state-danger);
+}
+
+.ui-badge--rare {
+  --badge-tone: var(--color-game-rare);
+}
+
+.ui-badge--info {
+  --badge-tone: var(--color-state-info);
+}

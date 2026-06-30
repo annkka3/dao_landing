@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Orbitron:wght@500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  font-family: var(--font-ui);
+  font-feature-settings: "tnum" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.text-display,
+.text-h1,
+.text-h2,
+.text-label {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.text-display {
+  font-size: var(--text-display-size);
+  font-weight: 800;
+  line-height: var(--text-display-line-height);
+}
+
+.text-h1 {
+  font-size: var(--text-h1-size);
+  font-weight: 700;
+  line-height: var(--text-h1-line-height);
+}
+
+.text-h2 {
+  font-size: var(--text-h2-size);
+  font-weight: 700;
+  line-height: var(--text-h2-line-height);
+}
+
+.text-body {
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+}
+
+.text-caption {
+  color: var(--color-text-muted);
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-line-height);
+}
+
+.text-number {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+}

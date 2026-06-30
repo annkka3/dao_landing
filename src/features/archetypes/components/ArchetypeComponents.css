@@ -1,0 +1,117 @@
+.archetype-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+.archetype-card {
+  --archetype-accent: var(--color-game-bonus);
+  position: relative;
+  display: grid;
+  min-height: 164px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--archetype-accent), transparent 42%);
+  border-radius: var(--radius-m);
+  padding: 0;
+  color: var(--color-text-primary);
+  background: rgba(11, 15, 20, 0.84);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+}
+
+.archetype-card--selected {
+  box-shadow: 0 0 0 1px var(--archetype-accent), 0 0 18px color-mix(in srgb, var(--archetype-accent), transparent 55%);
+}
+
+.archetype-card--locked {
+  cursor: not-allowed;
+  filter: grayscale(0.9);
+  opacity: 0.62;
+}
+
+.archetype-card__avatar {
+  width: 100%;
+  height: 112px;
+  object-fit: cover;
+}
+
+.archetype-card__badge {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--archetype-accent);
+  border-radius: var(--radius-round);
+  background: color-mix(in srgb, var(--archetype-accent), transparent 82%);
+}
+
+.archetype-card__content {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-10, 10px);
+  text-align: left;
+}
+
+.archetype-card__name,
+.archetype-detail h2 {
+  margin: 0;
+  color: var(--archetype-accent);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.archetype-card__description,
+.archetype-detail__summary,
+.archetype-detail__traits {
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+}
+
+.archetype-card__lock {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-text-primary);
+  background: rgba(11, 15, 20, 0.62);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.archetype-detail {
+  --archetype-accent: var(--color-game-bonus);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--archetype-accent), transparent 42%);
+  border-radius: var(--radius-l);
+  background: rgba(11, 15, 20, 0.88);
+}
+
+.archetype-detail__hero {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+}
+
+.archetype-detail__content {
+  display: grid;
+  gap: var(--space-12);
+  padding: var(--space-16);
+}
+
+.archetype-detail__traits {
+  display: grid;
+  gap: var(--space-8);
+  margin: 0;
+  padding-left: var(--space-20);
+}
+
+@media (min-width: 420px) {
+  .archetype-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
