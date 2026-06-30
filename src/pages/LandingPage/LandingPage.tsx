@@ -510,8 +510,11 @@ function LandingHeader({
           <button className="landing-btn landing-btn--ghost" type="button" onClick={onPitchdeck}>
             {t.nav.pitchdeck}
           </button>
+          <a className="landing-icon-btn landing-version-btn" href="/landing-story" aria-label="Open story landing" title="Story landing">
+            V2
+          </a>
           <LanguageToggle language={language} onChange={onLanguage} />
-          <button className="landing-icon-btn" type="button" onClick={onTheme} aria-label={t.nav.theme}>
+          <button className="landing-icon-btn landing-theme-toggle" type="button" onClick={onTheme} aria-label={t.nav.theme}>
             <Icon name={theme === "dark" ? "sun" : "moon"} />
           </button>
         </div>
@@ -529,8 +532,11 @@ function LandingHeader({
           {t.nav.pitchdeck}
         </button>
         <div className="landing-mobile-menu__controls">
+          <a className="landing-icon-btn landing-version-btn" href="/landing-story" aria-label="Open story landing" title="Story landing">
+            V2
+          </a>
           <LanguageToggle language={language} onChange={onLanguage} />
-          <button className="landing-icon-btn" type="button" onClick={onTheme} aria-label={t.nav.theme}>
+          <button className="landing-icon-btn landing-theme-toggle" type="button" onClick={onTheme} aria-label={t.nav.theme}>
             <Icon name={theme === "dark" ? "sun" : "moon"} />
           </button>
         </div>
@@ -540,14 +546,18 @@ function LandingHeader({
 }
 
 function LanguageToggle({ language, onChange }: { language: LandingLanguage; onChange: (language: LandingLanguage) => void }) {
+  const nextLanguage = language === "ru" ? "en" : "ru";
+
   return (
-    <div className="landing-lang" aria-label="Language">
-      {(["ru", "en"] as const).map((lang) => (
-        <button key={lang} type="button" className={language === lang ? "is-active" : ""} onClick={() => onChange(lang)}>
-          {lang.toUpperCase()}
-        </button>
-      ))}
-    </div>
+    <button
+      className="landing-icon-btn landing-lang-toggle"
+      type="button"
+      onClick={() => onChange(nextLanguage)}
+      aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
+      title={`Switch to ${nextLanguage.toUpperCase()}`}
+    >
+      {nextLanguage.toUpperCase()}
+    </button>
   );
 }
 
@@ -621,10 +631,10 @@ function HeroJourneyLayer({ language }: { language: LandingLanguage }) {
       <svg className="journey-path-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <linearGradient id="pathGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%"   stopColor="#ef4444" stopOpacity="0.95" />
-            <stop offset="35%"  stopColor="#a855f7" stopOpacity="1" />
-            <stop offset="70%"  stopColor="#6366f1" stopOpacity="1" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="1" />
+            <stop offset="0%"   stopColor="var(--journey-path-start, #ef4444)" stopOpacity="0.95" />
+            <stop offset="35%"  stopColor="var(--journey-path-mid-1, #a855f7)" stopOpacity="1" />
+            <stop offset="70%"  stopColor="var(--journey-path-mid-2, #6366f1)" stopOpacity="1" />
+            <stop offset="100%" stopColor="var(--journey-path-end, #38bdf8)" stopOpacity="1" />
           </linearGradient>
           <filter id="sparkGlow" x="-500%" y="-500%" width="1100%" height="1100%">
             <feGaussianBlur stdDeviation="0.8 1.38" result="blur" />
@@ -1070,7 +1080,7 @@ export function LandingPage() {
   }, [language]);
 
   return (
-    <div className={`dao-landing dao-landing--${theme}`}>
+    <div className={`dao-landing dao-landing--${theme} dao-landing--${language}`}>
       <div className="landing-hero-wrap" style={{ backgroundImage: `url(${theme === "light" ? heroBgLight : heroBg})` }}>
         <LandingHeader
           language={language}

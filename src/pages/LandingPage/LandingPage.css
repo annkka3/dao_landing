@@ -346,6 +346,35 @@
   border-radius: 8px;
 }
 
+.landing-lang-toggle,
+.landing-version-btn {
+  color: var(--landing-cyan);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.dao-landing--dark .landing-lang-toggle {
+  color: #f8fafc;
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.dao-landing--light .landing-lang-toggle,
+.dao-landing--light .landing-version-btn {
+  color: #1e3a8a;
+  font-size: 0.72rem;
+}
+
+.dao-landing--light .landing-icon-btn.landing-lang-toggle {
+  color: #1e3a8a;
+  font-weight: 950;
+}
+
+.dao-landing--light .landing-theme-toggle {
+  color: #1e3a8a;
+}
+
 .landing-lang {
   display: inline-flex;
   align-items: center;
@@ -2533,6 +2562,434 @@
   color: #fecaca !important;
 }
 
+/* Light theme premium polish: pearl glass / daylight Web3 map */
+.dao-landing--light {
+  --landing-bg: #f7faff;
+  --landing-bg-2: #eef5ff;
+  --landing-surface: rgba(255, 255, 255, 0.76);
+  --landing-surface-strong: rgba(255, 255, 255, 0.9);
+  --landing-text: #0f172a;
+  --landing-muted: #475569;
+  --landing-border: rgba(59, 130, 246, 0.18);
+  --landing-border-strong: rgba(124, 58, 237, 0.28);
+  --journey-path-start: #38bdf8;
+  --journey-path-mid-1: #8b5cf6;
+  --journey-path-mid-2: #6366f1;
+  --journey-path-end: #06b6d4;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(56, 189, 248, 0.24), transparent 30rem),
+    radial-gradient(circle at 26% 34%, rgba(168, 85, 247, 0.18), transparent 34rem),
+    radial-gradient(circle at 14% 82%, rgba(251, 191, 36, 0.12), transparent 25rem),
+    radial-gradient(circle at 9% 66%, rgba(244, 114, 182, 0.1), transparent 24rem),
+    linear-gradient(145deg, #f7faff 0%, #eef5ff 44%, #fbfdff 100%);
+}
+
+.dao-landing--light::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(37, 99, 235, 0.12) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(168, 85, 247, 0.1) 0 1px, transparent 1.6px);
+  background-position: 0 0, 38px 46px;
+  background-size: 96px 96px, 128px 128px;
+  opacity: 0.22;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 82%, transparent 100%);
+}
+
+.dao-landing--light .landing-header {
+  border-bottom: 1px solid rgba(59, 130, 246, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(18px) saturate(1.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.18);
+}
+
+@media (min-width: 1241px) {
+  .dao-landing--light {
+    --landing-light-visual-width: min(calc(100vw - clamp(150px, 14vw, 320px)), 1760px);
+  }
+
+  .dao-landing--light .landing-hero__inner {
+    width: var(--landing-light-visual-width);
+    max-width: none;
+  }
+
+  .dao-landing--light .journey-proof {
+    right: calc((100vw - var(--landing-light-visual-width)) / 2 + 24px);
+  }
+
+  .dao-landing--light.dao-landing--ru .landing-header__inner {
+    gap: clamp(12px, 1vw, 18px);
+  }
+
+  .dao-landing--light.dao-landing--ru .landing-nav {
+    gap: clamp(10px, 1.1vw, 18px);
+    font-size: 0.8rem;
+  }
+
+  .dao-landing--light.dao-landing--ru .landing-header__actions {
+    gap: 8px;
+    transform: none;
+  }
+
+  .dao-landing--light.dao-landing--ru .landing-header__actions > .landing-btn {
+    padding-inline: 13px;
+    font-size: 0.86rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .dao-landing--light .landing-header__inner {
+    width: var(--landing-light-visual-width);
+    max-width: none;
+  }
+
+  .dao-landing--light .landing-header__actions {
+    transform: none;
+  }
+}
+
+.dao-landing--light .landing-nav {
+  color: #334155;
+}
+
+.dao-landing--light .landing-btn,
+.dao-landing--light .landing-icon-btn,
+.dao-landing--light .landing-lang,
+.dao-landing--light .landing-lang button {
+  border-color: rgba(59, 130, 246, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.dao-landing--light .landing-lang button.is-active,
+.dao-landing--light .landing-icon-btn.is-active {
+  border-color: rgba(56, 189, 248, 0.62);
+  color: #1e3a8a;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(168, 85, 247, 0.14));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.68),
+    0 0 18px rgba(56, 189, 248, 0.22);
+}
+
+.dao-landing--light .landing-lang-toggle,
+.dao-landing--light .landing-version-btn {
+  color: #1e3a8a;
+}
+
+.dao-landing--light .landing-btn--primary {
+  border-color: rgba(124, 58, 237, 0.48);
+  color: #0f172a;
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6 54%, #c084fc);
+  box-shadow:
+    0 16px 36px rgba(124, 58, 237, 0.24),
+    0 0 34px rgba(56, 189, 248, 0.18);
+}
+
+.dao-landing--light .landing-hero-wrap::before {
+  background:
+    linear-gradient(180deg, rgba(247, 250, 255, 0.18) 0%, rgba(247, 250, 255, 0.04) 36%, rgba(247, 250, 255, 0.34) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.06) 42%, transparent 70%);
+}
+
+.dao-landing--light .landing-hero__bg {
+  background:
+    radial-gradient(circle at 82% 13%, rgba(34, 211, 238, 0.16), transparent 28rem),
+    radial-gradient(circle at 20% 78%, rgba(244, 114, 182, 0.14), transparent 26rem),
+    linear-gradient(90deg, rgba(247, 250, 255, 0.2) 0%, rgba(247, 250, 255, 0.04) 46%, rgba(247, 250, 255, 0) 100%),
+    linear-gradient(180deg, rgba(247, 250, 255, 0) 0%, rgba(247, 250, 255, 0.08) 58%, rgba(247, 250, 255, 0.3) 100%),
+    url("/assets/landing/back_light_update.png") center top / contain no-repeat;
+  background-color: #f6faff;
+}
+
+.dao-landing--light .landing-hero__bg::after {
+  background:
+    linear-gradient(180deg, rgba(246, 250, 255, 0.5) 0%, rgba(246, 250, 255, 0.18) 12%, rgba(246, 250, 255, 0) 34%, rgba(246, 250, 255, 0) 70%, rgba(246, 250, 255, 0.28) 100%),
+    linear-gradient(90deg, rgba(246, 250, 255, 0.54) 0%, rgba(246, 250, 255, 0.18) 12%, rgba(246, 250, 255, 0) 30%, rgba(246, 250, 255, 0) 70%, rgba(246, 250, 255, 0.18) 88%, rgba(246, 250, 255, 0.54) 100%),
+    radial-gradient(circle at 78% 22%, rgba(37, 99, 235, 0.14), transparent 26rem),
+    radial-gradient(circle at 26% 72%, rgba(244, 114, 182, 0.1), transparent 30rem);
+}
+
+.dao-landing--light .landing-pill,
+.dao-landing--light .landing-eyebrow {
+  color: #312e81;
+  border-color: rgba(59, 130, 246, 0.2);
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 12px 32px rgba(37, 99, 235, 0.06);
+  backdrop-filter: blur(16px) saturate(1.16);
+  -webkit-backdrop-filter: blur(16px) saturate(1.16);
+}
+
+.dao-landing--light .landing-gradient-text {
+  background:
+    linear-gradient(110deg, #7c3aed 0%, #8b5cf6 22%, #4f46e5 42%, #0ea5e9 58%, #9333ea 78%, #7dd3fc 100%);
+  background-size: 260% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow:
+    0 0 20px rgba(124, 58, 237, 0.2),
+    0 0 34px rgba(14, 165, 233, 0.16);
+}
+
+.dao-landing--light .journey__path-halo {
+  stroke: rgba(99, 102, 241, 0.18);
+  stroke-width: 24;
+  filter: blur(7px);
+}
+
+.dao-landing--light .journey__path-core {
+  stroke-width: 4;
+  filter:
+    drop-shadow(0 0 7px rgba(99, 102, 241, 0.54))
+    drop-shadow(0 0 15px rgba(14, 165, 233, 0.36));
+}
+
+.dao-landing--light .journey-marker--chaos {
+  color: #be123c;
+  text-shadow: 0 0 20px rgba(244, 114, 182, 0.16);
+}
+
+.dao-landing--light .journey-marker--system {
+  color: #1d4ed8;
+  text-shadow: 0 0 20px rgba(14, 165, 233, 0.18);
+}
+
+.dao-landing--light .journey-marker span {
+  color: #334155;
+}
+
+.dao-landing--light .journey-node__orb {
+  border-color: rgba(124, 58, 237, 0.42);
+  background:
+    radial-gradient(circle at 38% 28%, rgba(255, 255, 255, 0.46) 0%, transparent 36%),
+    radial-gradient(circle at 62% 68%, rgba(56, 189, 248, 0.18) 0%, transparent 42%),
+    linear-gradient(145deg, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.66) 54%, rgba(168, 85, 247, 0.52));
+  box-shadow:
+    0 0 0 10px rgba(139, 92, 246, 0.08),
+    0 0 28px rgba(124, 58, 237, 0.34),
+    0 0 52px rgba(56, 189, 248, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.dao-landing--light .journey-node__number {
+  color: rgba(15, 23, 42, 0.76);
+  border-color: rgba(59, 130, 246, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45), rgba(219, 234, 254, 0.32));
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.08);
+}
+
+.dao-landing--light .journey-node__copy,
+.dao-landing--light .journey-proof,
+.dao-landing--light .journey-card {
+  border-color: rgba(59, 130, 246, 0.2);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(239, 246, 255, 0.68)),
+    radial-gradient(circle at 82% 0%, rgba(56, 189, 248, 0.1), transparent 38%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.08), transparent 42%);
+  box-shadow:
+    0 18px 46px rgba(15, 23, 42, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(20px) saturate(1.18);
+  -webkit-backdrop-filter: blur(20px) saturate(1.18);
+}
+
+.dao-landing--light .traction-grid,
+.dao-landing--light .usp-grid,
+.dao-landing--light .press-grid,
+.dao-landing--light .market-panel,
+.dao-landing--light .final-cta__inner {
+  border-color: rgba(59, 130, 246, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(239, 246, 255, 0.68)),
+    radial-gradient(circle at 82% 0%, rgba(56, 189, 248, 0.12), transparent 36%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.1), transparent 38%);
+  box-shadow:
+    0 20px 58px rgba(15, 23, 42, 0.09),
+    0 0 60px rgba(56, 189, 248, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(22px) saturate(1.14);
+  -webkit-backdrop-filter: blur(22px) saturate(1.14);
+}
+
+.dao-landing--light .traction-grid::before,
+.dao-landing--light .usp-grid::before {
+  background: linear-gradient(100deg, rgba(56, 189, 248, 0.28), rgba(124, 58, 237, 0.18), rgba(245, 197, 66, 0.14));
+}
+
+.dao-landing--light .traction-card,
+.dao-landing--light .glow-card {
+  border-color: rgba(59, 130, 246, 0.12);
+}
+
+.dao-landing--light .traction-card:hover,
+.dao-landing--light .glow-card:hover,
+.dao-landing--light .press-card:hover {
+  border-color: rgba(56, 189, 248, 0.34);
+  background-color: rgba(255, 255, 255, 0.42);
+  box-shadow:
+    inset 0 0 34px rgba(56, 189, 248, 0.08),
+    0 18px 42px rgba(37, 99, 235, 0.08);
+}
+
+.dao-landing--light .traction-card strong {
+  background: linear-gradient(120deg, #7c3aed, #0ea5e9 62%, #38bdf8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 0 22px rgba(37, 99, 235, 0.16);
+}
+
+.dao-landing--light .usp-orbit-panel {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.dao-landing--light .usp-orbit-panel__aura {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(56, 189, 248, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.12), transparent 50%),
+    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.07), transparent 62%);
+}
+
+.dao-landing--light .glow-card__icon,
+.dao-landing--light .press-card__icon,
+.dao-landing--light .traction-card__icon {
+  filter:
+    brightness(1.07)
+    contrast(1.06)
+    drop-shadow(0 12px 22px rgba(37, 99, 235, 0.12))
+    drop-shadow(0 0 24px rgba(168, 85, 247, 0.1));
+}
+
+.dao-landing--light .market-panel::before {
+  opacity: 0.62;
+  background:
+    linear-gradient(90deg, rgba(56, 189, 248, 0.16), transparent 20%, transparent 78%, rgba(168, 85, 247, 0.14));
+}
+
+.dao-landing--light .market-panel__head small {
+  color: #1e293b;
+  border-color: rgba(59, 130, 246, 0.2);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.dao-landing--light .market-strip {
+  padding: 18px 26px;
+  border-color: rgba(59, 130, 246, 0.14);
+  background:
+    linear-gradient(90deg, rgba(56, 189, 248, 0.08), rgba(255, 255, 255, 0.56), rgba(168, 85, 247, 0.07)),
+    rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 36px rgba(56, 189, 248, 0.05);
+  overflow: visible;
+}
+
+.dao-landing--light .market-strip__track {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(10px, 1.5vw, 18px);
+  width: 100%;
+  padding: 0;
+  animation: none;
+}
+
+.dao-landing--light .market-logo:nth-child(n + 8) {
+  display: none;
+}
+
+.dao-landing--light .market-logo {
+  min-width: 0;
+  min-height: 96px;
+  opacity: 1;
+}
+
+.dao-landing--light .market-logo__img {
+  width: min(128px, 100%);
+  height: 128px;
+  filter:
+    saturate(1.08)
+    brightness(0.9)
+    contrast(1.26)
+    opacity(0.96)
+    drop-shadow(0 12px 22px rgba(15, 23, 42, 0.08));
+}
+
+.dao-landing--light .market-logo:hover .market-logo__img {
+  filter:
+    saturate(1.16)
+    brightness(0.96)
+    contrast(1.32)
+    opacity(1)
+    drop-shadow(0 12px 26px rgba(37, 99, 235, 0.14))
+    drop-shadow(0 0 18px rgba(56, 189, 248, 0.14));
+}
+
+.dao-landing--light .landing-note {
+  color: #64748b;
+}
+
+.dao-landing--light .press-card {
+  border-color: rgba(59, 130, 246, 0.16);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 255, 0.64)),
+    radial-gradient(circle at 90% 0%, rgba(56, 189, 248, 0.1), transparent 34%);
+  box-shadow:
+    0 18px 46px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.dao-landing--light .press-card small {
+  color: #475569;
+}
+
+.dao-landing--light .press-card__top span.is-open {
+  border-color: rgba(14, 165, 233, 0.34);
+  color: #0369a1;
+  background: rgba(224, 242, 254, 0.64);
+}
+
+.dao-landing--light .press-card__top span.is-request {
+  border-color: rgba(202, 138, 4, 0.28);
+  color: #92400e;
+  background: rgba(254, 243, 199, 0.68);
+}
+
+.dao-landing--light .final-cta__inner {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(56, 189, 248, 0.18), transparent 34%),
+    radial-gradient(circle at 12% 90%, rgba(124, 58, 237, 0.12), transparent 34%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.76), rgba(239, 246, 255, 0.58) 54%, rgba(236, 254, 255, 0.52));
+}
+
+.dao-landing--light .final-cta__inner::before {
+  border-color: rgba(14, 165, 233, 0.18);
+  box-shadow: 0 0 46px rgba(56, 189, 248, 0.1);
+}
+
+.dao-landing--light .final-cta__inner::after {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.48), transparent 24%, transparent 72%, rgba(56, 189, 248, 0.08));
+  opacity: 0.66;
+}
+
+.dao-landing--light .final-cta__microline {
+  color: #1d4ed8;
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.16);
+}
+
+.dao-landing--light .landing-footer {
+  border-top-color: rgba(59, 130, 246, 0.14);
+  background:
+    linear-gradient(180deg, rgba(248, 251, 255, 0.72), rgba(238, 245, 255, 0.84));
+}
+
 @keyframes landingSlideIn {
   from {
     opacity: 0;
@@ -2744,6 +3201,28 @@
   .landing-mobile-menu__controls {
     display: flex;
     gap: 10px;
+  }
+
+  .landing-mobile-menu__controls .landing-lang-toggle,
+  .landing-mobile-menu__controls .landing-version-btn {
+    color: #f8fafc;
+    background: linear-gradient(135deg, #38bdf8, #8b5cf6 52%, #a855f7);
+    border-color: rgba(139, 92, 246, 0.58);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 0 16px rgba(139, 92, 246, 0.3),
+      0 0 22px rgba(56, 189, 248, 0.14);
+  }
+
+  .dao-landing--light .landing-mobile-menu__controls .landing-lang-toggle,
+  .dao-landing--light .landing-mobile-menu__controls .landing-version-btn {
+    color: #0f172a;
+    background: linear-gradient(135deg, #38bdf8, #8b5cf6 54%, #c084fc);
+    border-color: rgba(56, 189, 248, 0.62);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.68),
+      0 0 18px rgba(56, 189, 248, 0.22),
+      0 0 22px rgba(124, 58, 237, 0.16);
   }
 
   .landing-hero__inner {
@@ -3192,7 +3671,27 @@
 
   /* light theme */
   .dao-landing--light .mobile-journey__line {
-    background: linear-gradient(to bottom, #dc2626, #7c3aed 40%, #4f46e5 70%, #0ea5e9);
+    background: linear-gradient(to bottom, #38bdf8, #8b5cf6 42%, #6366f1 72%, #06b6d4);
+  }
+}
+
+@media (max-width: 720px) {
+  .dao-landing--light .market-strip {
+    padding: 16px;
+    overflow: visible;
+  }
+
+  .dao-landing--light .market-strip__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dao-landing--light .market-logo {
+    min-height: 84px;
+  }
+
+  .dao-landing--light .market-logo__img {
+    width: min(118px, 100%);
+    height: 118px;
   }
 }
 

@@ -8,6 +8,7 @@ import { ErrorBoundary } from "./shared/ui/ErrorBoundary/ErrorBoundary";
 import { NotificationProvider } from "./shared/notifications/NotificationProvider";
 import { ThemeProvider } from "./shared/theme/ThemeProvider";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
+import { LandingStoryPage } from "./pages/LandingStoryPage/LandingStoryPage";
 import "./shared/styles/typography.css";
 import "./shared/styles/tokens.css";
 import { getWebApp } from "./telegram/webapp";
@@ -18,7 +19,8 @@ if (!rootElement) {
 }
 const rootContainer = rootElement;
 
-const isLandingRoute = window.location.pathname === "/landing";
+const publicLandingRoutes = new Set(["/landing", "/landing-classic", "/landing-story"]);
+const isLandingRoute = publicLandingRoutes.has(window.location.pathname);
 
 function loadTelegramSdk(): Promise<void> {
   if (window.Telegram?.WebApp) return Promise.resolve();
@@ -53,7 +55,9 @@ async function bootstrap() {
   createRoot(rootContainer).render(
     <StrictMode>
       <ErrorBoundary>
-        {isLandingRoute ? (
+        {window.location.pathname === "/landing-story" || (window.location.pathname === "/landing" && window.matchMedia("(max-width: 900px)").matches) ? (
+          <LandingStoryPage />
+        ) : isLandingRoute ? (
           <LandingPage />
         ) : (
           <QueryClientProvider client={queryClient}>

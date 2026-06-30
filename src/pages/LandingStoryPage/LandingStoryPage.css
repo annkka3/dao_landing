@@ -1,0 +1,1872 @@
+.storyLanding {
+  --story-bg: #050711;
+  --story-bg-soft: #0a1020;
+  --story-surface: rgba(9, 14, 30, 0.74);
+  --story-surface-strong: rgba(12, 18, 36, 0.94);
+  --story-text: #f8fafc;
+  --story-muted: #a9b6ca;
+  --story-border: rgba(180, 196, 220, 0.18);
+  --story-border-strong: rgba(68, 221, 255, 0.36);
+  --story-cyan: #22d3ee;
+  --story-violet: #a855f7;
+  --story-gold: #f5c542;
+  --story-red: #fb7185;
+  --story-green: #35f29a;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--story-text);
+  background:
+    radial-gradient(circle at 50% 16%, rgba(34, 211, 238, 0.18), transparent 30rem),
+    radial-gradient(circle at 18% 82%, rgba(168, 85, 247, 0.16), transparent 28rem),
+    linear-gradient(180deg, #03040a 0%, var(--story-bg) 44%, #03050d 100%);
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.storyLanding--light {
+  --story-bg: #f7faff;
+  --story-bg-soft: #eef5ff;
+  --story-surface: rgba(255, 255, 255, 0.76);
+  --story-surface-strong: rgba(255, 255, 255, 0.9);
+  --story-text: #0f172a;
+  --story-muted: #475569;
+  --story-border: rgba(59, 130, 246, 0.18);
+  --story-border-strong: rgba(124, 58, 237, 0.28);
+  background:
+    radial-gradient(circle at 88% 8%, rgba(56, 189, 248, 0.24), transparent 30rem),
+    radial-gradient(circle at 26% 34%, rgba(168, 85, 247, 0.18), transparent 34rem),
+    radial-gradient(circle at 14% 82%, rgba(251, 191, 36, 0.12), transparent 25rem),
+    radial-gradient(circle at 9% 66%, rgba(244, 114, 182, 0.1), transparent 24rem),
+    linear-gradient(145deg, #f7faff 0%, #eef5ff 44%, #fbfdff 100%);
+}
+
+.storyLanding--light::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(37, 99, 235, 0.12) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(168, 85, 247, 0.1) 0 1px, transparent 1.6px);
+  background-position: 0 0, 38px 46px;
+  background-size: 96px 96px, 128px 128px;
+  opacity: 0.22;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 82%, transparent 100%);
+}
+
+.storyLanding *,
+.storyLanding *::before,
+.storyLanding *::after {
+  box-sizing: border-box;
+}
+
+.storyLanding a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.storyLanding button,
+.storyLanding input,
+.storyLanding textarea {
+  font: inherit;
+}
+
+.storyLanding button {
+  cursor: pointer;
+}
+
+.storyLanding :focus-visible {
+  outline: 2px solid var(--story-cyan);
+  outline-offset: 3px;
+}
+
+.storyLandingTopbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 68px;
+  padding: calc(10px + env(safe-area-inset-top)) 22px 10px;
+  border-bottom: 1px solid var(--story-border);
+  background: rgba(3, 5, 14, 0.56);
+  backdrop-filter: blur(18px);
+}
+
+.storyLanding--light .storyLandingTopbar {
+  border-bottom-color: rgba(59, 130, 246, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(18px) saturate(1.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.18);
+}
+
+.storyLandingBrand {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.storyLandingBrand img {
+  display: block;
+  width: 154px;
+  max-width: 32vw;
+  height: auto;
+  filter:
+    brightness(1.36)
+    contrast(1.14)
+    drop-shadow(0 0 12px rgba(34, 211, 238, 0.16))
+    drop-shadow(0 0 12px rgba(168, 85, 247, 0.26));
+}
+
+.storyLanding--light .storyLandingBrand img {
+  filter:
+    brightness(0.84)
+    contrast(1.18)
+    drop-shadow(0 0 8px rgba(37, 99, 235, 0.16));
+}
+
+.storyLandingControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+}
+
+.storyLandingControl,
+.storyLandingLanguage button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  color: var(--story-text);
+  background: var(--story-surface);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.storyLanding--light .storyLandingControl,
+.storyLanding--light .storyLandingLanguage button {
+  border-color: rgba(59, 130, 246, 0.18);
+  color: #1e3a8a;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.storyLandingControl--text {
+  gap: 8px;
+  padding: 0 12px;
+  color: inherit;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.storyLandingControl--text:hover,
+.storyLandingLanguage button:hover {
+  color: inherit;
+  border-color: var(--story-border-strong);
+}
+
+.storyLandingControl--icon {
+  width: 42px;
+  min-height: 42px;
+  color: inherit;
+}
+
+.storyLandingControl--language,
+.storyLandingControl--version {
+  flex: 0 0 auto;
+  color: var(--story-cyan);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.storyLanding--dark .storyLandingControl--language {
+  color: #f8fafc;
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.storyLandingLanguage {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.storyLandingLanguage button {
+  min-width: 36px;
+  min-height: 30px;
+  border: 0;
+  color: var(--story-muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  background: transparent;
+  box-shadow: none;
+}
+
+.storyLandingLanguage button.isActive {
+  color: #f8fafc;
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6 52%, #a855f7);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 0 16px rgba(139, 92, 246, 0.36),
+    0 0 24px rgba(56, 189, 248, 0.18);
+}
+
+.storyLanding--light .storyLandingLanguage button.isActive {
+  border-color: rgba(56, 189, 248, 0.62);
+  color: #0f172a;
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6 54%, #c084fc);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.68),
+    0 0 18px rgba(56, 189, 248, 0.22),
+    0 0 22px rgba(124, 58, 237, 0.16);
+}
+
+.storyLanding--light .storyLandingControl--language,
+.storyLanding--light .storyLandingControl--version,
+.storyLanding--light .storyLandingControl--theme {
+  color: #1e3a8a;
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.storyProgress {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  z-index: 25;
+  display: grid;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.storyProgress a {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--story-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  transition: width 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.storyProgress a.isActive {
+  width: 24px;
+  border-color: rgba(34, 211, 238, 0.62);
+  background: var(--story-cyan);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.48);
+}
+
+.storyLandingScreens {
+  position: relative;
+}
+
+.storyScreen {
+  position: relative;
+  min-height: 100vh;
+  padding: 112px 56px 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  isolation: isolate;
+}
+
+.storyLanding--light .storyScreen {
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+.storyScreen::before {
+  content: attr(data-screen);
+  position: absolute;
+  right: 72px;
+  bottom: 36px;
+  z-index: -1;
+  color: rgba(34, 211, 238, 0.14);
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow:
+    0 0 14px rgba(34, 211, 238, 0.3),
+    0 0 34px rgba(168, 85, 247, 0.2),
+    0 0 54px rgba(245, 197, 66, 0.08);
+}
+
+.storyLanding--light .storyScreen::before {
+  color: rgba(37, 99, 235, 0.15);
+  text-shadow:
+    0 0 16px rgba(56, 189, 248, 0.24),
+    0 0 34px rgba(124, 58, 237, 0.16);
+}
+
+.storyScreenInner {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 1fr);
+  align-items: center;
+  gap: 54px;
+  width: min(1120px, 100%);
+  min-height: calc(100vh - 170px);
+  margin: 0 auto;
+}
+
+.storyScreenCopy {
+  display: grid;
+  gap: 18px;
+  max-width: 620px;
+}
+
+.storyScreenKicker {
+  position: absolute;
+  top: 102px;
+  left: 56px;
+  z-index: 4;
+  display: inline-flex;
+  width: max-content;
+  border: 1px solid var(--story-border);
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: var(--story-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.storyScreen h1 {
+  margin: 0;
+  color: var(--story-text);
+  font-size: 3rem;
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+.storyScreenThought {
+  margin: 0;
+  color: var(--story-text);
+  font-size: 1.28rem;
+  line-height: 1.42;
+  font-weight: 760;
+}
+
+.storyScreenDescription {
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.storyLandingCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: max-content;
+  min-height: 48px;
+  margin-top: 4px;
+  position: relative;
+  border: 1px solid rgba(139, 92, 246, 0.58);
+  border-radius: 8px;
+  padding: 0 18px;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6 52%, #a855f7);
+  box-shadow: 0 14px 34px rgba(139, 92, 246, 0.36);
+  font-weight: 860;
+  overflow: hidden;
+}
+
+.storyLandingCta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(200, 160, 255, 0.35) 56%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  animation: storyBtnShimmer 4.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.storyLandingCta:hover {
+  animation: storyBtnPulseGlow 1.8s ease-in-out infinite;
+}
+
+.storyLandingCta--primaryScreen {
+  min-height: 58px;
+  padding: 0 28px;
+  font-size: 1.04rem;
+  box-shadow:
+    0 18px 42px rgba(139, 92, 246, 0.42),
+    0 0 34px rgba(56, 189, 248, 0.22);
+}
+
+.storyLanding--light .storyLandingCta {
+  border-color: rgba(124, 58, 237, 0.48);
+  color: #0f172a;
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6 54%, #c084fc);
+  box-shadow:
+    0 16px 36px rgba(124, 58, 237, 0.24),
+    0 0 34px rgba(56, 189, 248, 0.18);
+}
+
+.storyVisual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(440px, 100%);
+  min-height: 360px;
+  justify-self: center;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+    var(--story-surface);
+  box-shadow: 0 26px 72px rgba(0, 0, 0, 0.34);
+  overflow: hidden;
+}
+
+.storyVisual::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.storyLanding--light .storyVisual {
+  border-color: rgba(59, 130, 246, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(239, 246, 255, 0.68)),
+    radial-gradient(circle at 82% 0%, rgba(56, 189, 248, 0.12), transparent 36%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.1), transparent 38%);
+  box-shadow:
+    0 20px 58px rgba(15, 23, 42, 0.09),
+    0 0 60px rgba(56, 189, 248, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(22px) saturate(1.14);
+  -webkit-backdrop-filter: blur(22px) saturate(1.14);
+}
+
+.storyVisual.storyVisual--asset {
+  width: min(540px, 100%);
+  min-height: 420px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.storyVisual.storyVisual--asset::before {
+  display: none;
+}
+
+.storyVisualAsset {
+  display: block;
+  width: min(100%, 500px);
+  height: auto;
+  max-height: 410px;
+  object-fit: contain;
+  filter:
+    brightness(1.04)
+    contrast(1.05)
+    drop-shadow(0 0 18px rgba(34, 211, 238, 0.2))
+    drop-shadow(0 0 30px rgba(168, 85, 247, 0.18))
+    drop-shadow(0 18px 42px rgba(0, 0, 0, 0.3));
+  user-select: none;
+  pointer-events: none;
+}
+
+.storyLanding--light .storyVisual.storyVisual--asset {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.storyLanding--light .storyVisualAsset {
+  filter:
+    brightness(1.03)
+    contrast(1.06)
+    drop-shadow(0 0 14px rgba(37, 99, 235, 0.14))
+    drop-shadow(0 0 24px rgba(124, 58, 237, 0.1))
+    drop-shadow(0 14px 28px rgba(15, 23, 42, 0.1));
+}
+
+.storyVisual,
+.storyScreenKicker,
+.storyScreen h1,
+.storyScreenThought,
+.storyScreenDescription,
+.storyRoadmapList,
+.storyTeamCards,
+.storyLandingCta {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.storyScreen.isActive .storyVisual {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.storyScreen.isActive .storyScreenKicker {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 100ms;
+}
+
+.storyScreen.isActive h1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 180ms;
+}
+
+.storyScreen.isActive .storyScreenThought {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 260ms;
+}
+
+.storyScreen.isActive .storyScreenDescription,
+.storyScreen.isActive .storyRoadmapList,
+.storyScreen.isActive .storyTeamCards,
+.storyScreen.isActive .storyLandingCta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 340ms;
+}
+
+.storyVisual--hero {
+  min-height: 430px;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(34, 211, 238, 0.16), transparent 25%),
+    radial-gradient(circle at 48% 50%, rgba(168, 85, 247, 0.16), transparent 43%),
+    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.08), transparent 60%);
+  box-shadow: none;
+  overflow: visible;
+}
+
+.storyVisual--final {
+  min-height: 430px;
+}
+
+.storyVisual--hero::before,
+.storyVisual--final::before {
+  inset: clamp(18px, 6vw, 52px);
+  border: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(34, 211, 238, 0.16), transparent 25%),
+    radial-gradient(circle at 48% 50%, rgba(168, 85, 247, 0.16), transparent 43%),
+    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.08), transparent 60%);
+  filter: blur(2px) drop-shadow(0 0 28px rgba(34, 211, 238, 0.1));
+}
+
+.storyLanding--light .storyVisual--hero,
+.storyLanding--light .storyVisual--final {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.storyLanding--light .storyVisual--hero::before,
+.storyLanding--light .storyVisual--final::before {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(56, 189, 248, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.12), transparent 50%),
+    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.07), transparent 62%);
+  filter: blur(2px) drop-shadow(0 0 20px rgba(37, 99, 235, 0.06));
+}
+
+.storyLogoRibbon {
+  position: absolute;
+  inset: clamp(34px, 5vw, 60px);
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  animation: storyRibbonOrbit 18s linear infinite;
+  will-change: transform;
+}
+
+.storyLogoRibbon span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background:
+    conic-gradient(
+      from 28deg,
+      transparent 0deg,
+      transparent 16deg,
+      rgba(34, 211, 238, 0.95) 34deg,
+      rgba(34, 211, 238, 0.26) 58deg,
+      transparent 78deg,
+      transparent 128deg,
+      rgba(168, 85, 247, 0.92) 148deg,
+      rgba(168, 85, 247, 0.26) 176deg,
+      transparent 198deg,
+      transparent 248deg,
+      rgba(245, 197, 66, 0.84) 268deg,
+      rgba(245, 197, 66, 0.24) 296deg,
+      transparent 318deg,
+      transparent 360deg
+    );
+  mask: radial-gradient(circle, transparent 0 61%, #000 62% 66%, transparent 67%);
+  box-shadow:
+    0 0 22px rgba(34, 211, 238, 0.24),
+    0 0 36px rgba(168, 85, 247, 0.18),
+    0 0 48px rgba(245, 197, 66, 0.1);
+  animation: storyRibbonShimmer 5.8s ease-in-out infinite;
+}
+
+.storyLogoRibbon span::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  border-radius: inherit;
+  background:
+    conic-gradient(
+      from 64deg,
+      transparent 0deg,
+      rgba(255, 255, 255, 0.36) 38deg,
+      transparent 72deg,
+      transparent 142deg,
+      rgba(255, 255, 255, 0.3) 164deg,
+      transparent 198deg,
+      transparent 272deg,
+      rgba(255, 255, 255, 0.24) 288deg,
+      transparent 322deg,
+      transparent 360deg
+    );
+  mask: radial-gradient(circle, transparent 0 61%, #000 62% 65%, transparent 66%);
+  mix-blend-mode: screen;
+  opacity: 0.68;
+  animation: storyRibbonSweep 4.6s ease-in-out infinite;
+}
+
+.storyLanding--light .storyLogoRibbon span {
+  opacity: 0.58;
+  box-shadow:
+    0 0 16px rgba(37, 99, 235, 0.12),
+    0 0 24px rgba(124, 58, 237, 0.1),
+    0 0 30px rgba(245, 197, 66, 0.08);
+}
+
+.storyVisualLogo {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 390px);
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  filter:
+    brightness(1.1)
+    contrast(1.08)
+    drop-shadow(0 0 18px rgba(34, 211, 238, 0.34))
+    drop-shadow(0 0 34px rgba(168, 85, 247, 0.26))
+    drop-shadow(0 0 54px rgba(245, 197, 66, 0.1))
+    drop-shadow(0 18px 42px rgba(0, 0, 0, 0.34));
+  animation: storyLogoGlow 5.6s ease-in-out infinite;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+.storyLanding--light .storyVisualLogo,
+.storyLanding--light .storyVisual--final img {
+  filter:
+    brightness(1.03)
+    contrast(1.06)
+    drop-shadow(0 0 14px rgba(37, 99, 235, 0.16))
+    drop-shadow(0 0 26px rgba(124, 58, 237, 0.12))
+    drop-shadow(0 14px 28px rgba(15, 23, 42, 0.12));
+}
+
+.storyVisualPulse {
+  position: absolute;
+  width: 112px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(245, 197, 66, 0.32);
+  border-radius: 50%;
+  animation: storyWave 2.2s ease-out infinite;
+}
+
+.storyScrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid var(--story-cyan);
+  border-bottom: 2px solid var(--story-cyan);
+  transform: translateX(-50%) rotate(45deg);
+  animation: storyCue 1.5s ease-in-out infinite;
+}
+
+.storyVisual--pain {
+  background:
+    linear-gradient(145deg, rgba(251, 113, 133, 0.2), rgba(245, 158, 11, 0.08)),
+    var(--story-surface);
+}
+
+.storyVisualChart {
+  position: absolute;
+  inset: 54px 28px 32px;
+  width: calc(100% - 56px);
+  height: calc(100% - 86px);
+  fill: none;
+  stroke: var(--story-red);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 18px rgba(251, 113, 133, 0.48));
+}
+
+.storyWarningRing {
+  width: 116px;
+  aspect-ratio: 1;
+  border: 2px solid rgba(251, 113, 133, 0.54);
+  border-radius: 50%;
+  box-shadow: 0 0 34px rgba(251, 113, 133, 0.34);
+}
+
+.storyWarningMark {
+  position: absolute;
+  color: var(--story-red);
+  font-size: 4.2rem;
+  font-weight: 950;
+}
+
+.storyVisual--fragmentation {
+  min-height: 380px;
+}
+
+.storyFragmentNode {
+  position: absolute;
+  z-index: 2;
+  min-width: 92px;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: var(--story-text);
+  background: var(--story-surface-strong);
+  font-size: 0.78rem;
+  font-weight: 780;
+  text-align: center;
+}
+
+.storyFragmentNode--1 { top: 38px; left: 42px; }
+.storyFragmentNode--2 { top: 50px; right: 38px; }
+.storyFragmentNode--3 { top: 132px; left: 26px; }
+.storyFragmentNode--4 { right: 24px; bottom: 76px; }
+.storyFragmentNode--5 { left: 86px; bottom: 34px; }
+
+.storyFragmentLine {
+  width: 78%;
+  fill: none;
+  stroke: var(--story-cyan);
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 14px rgba(34, 211, 238, 0.56));
+}
+
+.storyVisual--vision {
+  background:
+    linear-gradient(180deg, rgba(34, 211, 238, 0.1), rgba(168, 85, 247, 0.12)),
+    var(--story-surface);
+}
+
+.storyPhone {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 12px;
+  width: 176px;
+  min-height: 304px;
+  border: 1px solid rgba(34, 211, 238, 0.42);
+  border-radius: 22px;
+  padding: 28px 14px 16px;
+  background: rgba(3, 7, 18, 0.82);
+  box-shadow: inset 0 0 28px rgba(34, 211, 238, 0.08), 0 0 34px rgba(34, 211, 238, 0.24);
+}
+
+.storyLanding--light .storyPhone {
+  background: rgba(248, 251, 255, 0.9);
+}
+
+.storyPhoneTop {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 52px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--story-border);
+  transform: translateX(-50%);
+}
+
+.storyPhoneMessage {
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--story-muted);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.storyPhoneMessage--accent {
+  color: var(--story-cyan);
+  border-color: rgba(34, 211, 238, 0.38);
+}
+
+.storyAssemble {
+  position: absolute;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--story-surface-strong);
+  color: var(--story-text);
+  font-size: 0.76rem;
+  font-weight: 820;
+}
+
+.storyAssemble--one { top: 64px; left: 42px; }
+.storyAssemble--two { right: 54px; top: 94px; }
+.storyAssemble--three { left: 58px; bottom: 58px; }
+
+.storyRpgCard {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 12px;
+  width: 230px;
+  border: 1px solid rgba(245, 197, 66, 0.48);
+  border-radius: 8px;
+  padding: 24px;
+  background:
+    linear-gradient(145deg, rgba(245, 197, 66, 0.16), rgba(168, 85, 247, 0.16)),
+    rgba(4, 6, 16, 0.9);
+  box-shadow: 0 0 34px rgba(245, 197, 66, 0.18);
+}
+
+.storyLanding--light .storyRpgCard {
+  background:
+    linear-gradient(145deg, rgba(245, 197, 66, 0.16), rgba(168, 85, 247, 0.12)),
+    rgba(255, 255, 255, 0.92);
+}
+
+.storyRpgCard span {
+  color: var(--story-cyan);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.storyRpgCard strong {
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.storyRpgCard small {
+  color: var(--story-muted);
+}
+
+.storyDice {
+  position: absolute;
+  right: 58px;
+  bottom: 62px;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(34, 211, 238, 0.42);
+  border-radius: 8px;
+  color: var(--story-cyan);
+  background: var(--story-surface-strong);
+  font-size: 1.7rem;
+  font-weight: 900;
+  transform: rotate(12deg);
+}
+
+.storyStorm {
+  position: absolute;
+  inset: auto 0 0;
+  height: 86px;
+  background: linear-gradient(180deg, transparent, rgba(34, 211, 238, 0.16), rgba(168, 85, 247, 0.2));
+}
+
+.storyJournalPanel {
+  display: grid;
+  gap: 14px;
+  width: min(310px, calc(100% - 44px));
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 8px;
+  padding: 18px;
+  background: var(--story-surface-strong);
+}
+
+.storyJournalRow {
+  display: grid;
+  gap: 8px;
+}
+
+.storyJournalRow span {
+  color: var(--story-muted);
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.storyJournalRow i {
+  display: block;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--story-cyan), var(--story-green));
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
+}
+
+.storyVisual--education {
+  background:
+    linear-gradient(145deg, rgba(34, 211, 238, 0.1), rgba(245, 197, 66, 0.12)),
+    var(--story-surface);
+}
+
+.storyCap {
+  display: grid;
+  place-items: center;
+  width: 148px;
+  height: 92px;
+  border: 1px solid rgba(245, 197, 66, 0.46);
+  border-radius: 8px;
+  color: var(--story-gold);
+  background: var(--story-surface-strong);
+  font-size: 1.7rem;
+  font-weight: 950;
+  clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+}
+
+.storyMetricStack {
+  position: absolute;
+  right: 34px;
+  bottom: 36px;
+  display: grid;
+  gap: 8px;
+}
+
+.storyMetricStack span {
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--story-surface-strong);
+  color: var(--story-text);
+  font-size: 0.76rem;
+  font-weight: 820;
+}
+
+.storyNotification {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 7px;
+  width: min(300px, calc(100% - 52px));
+  border: 1px solid rgba(251, 113, 133, 0.42);
+  border-radius: 8px;
+  padding: 18px;
+  background: var(--story-surface-strong);
+  box-shadow: 0 0 34px rgba(251, 113, 133, 0.18);
+}
+
+.storyNotification span {
+  color: var(--story-red);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.storyNotification strong {
+  font-size: 1.32rem;
+}
+
+.storyNotification small {
+  color: var(--story-muted);
+}
+
+.storyShield {
+  position: absolute;
+  right: 54px;
+  bottom: 48px;
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 96px;
+  clip-path: polygon(50% 0, 88% 14%, 82% 68%, 50% 100%, 18% 68%, 12% 14%);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.38), rgba(53, 242, 154, 0.18));
+  color: var(--story-text);
+  font-weight: 950;
+}
+
+.storyVisual--economy {
+  min-height: 420px;
+}
+
+.storyUserCore {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  border-radius: 50%;
+  color: var(--story-cyan);
+  background: var(--story-surface-strong);
+  font-weight: 900;
+  box-shadow: 0 0 28px rgba(34, 211, 238, 0.24);
+}
+
+.storyLayer {
+  position: absolute;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--story-surface-strong);
+  color: var(--story-muted);
+  font-size: 0.72rem;
+  font-weight: 820;
+}
+
+.storyLayer--1 { top: 46px; left: 56px; }
+.storyLayer--2 { top: 54px; right: 42px; }
+.storyLayer--3 { top: 132px; left: 26px; }
+.storyLayer--4 { top: 150px; right: 36px; }
+.storyLayer--5 { bottom: 128px; left: 42px; }
+.storyLayer--6 { bottom: 116px; right: 22px; }
+.storyLayer--7 { bottom: 42px; left: 80px; }
+.storyLayer--8 { bottom: 40px; right: 48px; }
+
+.storyVisual--roadmap {
+  align-content: center;
+  gap: 22px;
+}
+
+.storyVisual--roadmap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  right: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--story-green), var(--story-cyan), var(--story-violet), var(--story-gold));
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.32);
+}
+
+.storyVisual--roadmap span {
+  position: relative;
+  z-index: 2;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: var(--story-surface-strong);
+  color: var(--story-text);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.storyRoadmapList {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.storyRoadmapList li {
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 13px 14px;
+  color: var(--story-muted);
+  background: rgba(255, 255, 255, 0.04);
+  line-height: 1.45;
+}
+
+#story-roadmap .storyRoadmapList li {
+  animation: storyRoadmapGlow 6.4s ease-in-out infinite;
+}
+
+#story-roadmap .storyRoadmapList li:nth-child(2) {
+  animation-delay: 1.6s;
+}
+
+#story-roadmap .storyRoadmapList li:nth-child(3) {
+  animation-delay: 3.2s;
+}
+
+#story-roadmap .storyRoadmapList li:nth-child(4) {
+  animation-delay: 4.8s;
+}
+
+.storyVisual--team {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 34px;
+}
+
+.storyVisual--team span {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 124px;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  background: var(--story-surface-strong);
+  color: var(--story-cyan);
+  font-weight: 880;
+}
+
+.storyTeamCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 920px;
+}
+
+.storyTeamCards article {
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.storyTeamCards h2 {
+  margin: 0 0 8px;
+  color: var(--story-text);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.storyTeamCards p {
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.storyVisual--final {
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(34, 211, 238, 0.16), transparent 25%),
+    radial-gradient(circle at 48% 50%, rgba(168, 85, 247, 0.16), transparent 43%),
+    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.08), transparent 60%);
+  box-shadow: none;
+  overflow: visible;
+}
+
+.storyVisual--final img {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 390px);
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  filter:
+    brightness(1.1)
+    contrast(1.08)
+    drop-shadow(0 0 18px rgba(34, 211, 238, 0.34))
+    drop-shadow(0 0 34px rgba(168, 85, 247, 0.26))
+    drop-shadow(0 0 54px rgba(245, 197, 66, 0.1))
+    drop-shadow(0 18px 42px rgba(0, 0, 0, 0.34));
+  animation: storyLogoGlow 5.6s ease-in-out infinite;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+.storyMiniAppSignal {
+  display: none;
+  position: absolute;
+  right: 68px;
+  bottom: 62px;
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgba(34, 211, 238, 0.44);
+  border-radius: 8px;
+  color: var(--story-cyan);
+  background: var(--story-surface-strong);
+}
+
+.storyLandingModalOpen {
+  overflow: hidden;
+}
+
+.storyLandingModal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.storyLandingModalScrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(3, 5, 14, 0.78);
+}
+
+.storyLandingModalPanel {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 26px;
+  color: var(--story-text);
+  background: var(--story-surface-strong);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.48);
+}
+
+.storyLandingModalClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  color: var(--story-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.storyLandingModalPanel h2 {
+  margin: 0 46px 10px 0;
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+.storyLandingModalPanel p {
+  margin: 0 0 18px;
+  color: var(--story-muted);
+  line-height: 1.55;
+}
+
+.storyLandingModalPanel form {
+  display: grid;
+  gap: 13px;
+}
+
+.storyLandingModalPanel label {
+  display: grid;
+  gap: 7px;
+  color: var(--story-muted);
+  font-size: 0.84rem;
+  font-weight: 760;
+}
+
+.storyLandingModalPanel input,
+.storyLandingModalPanel textarea {
+  width: 100%;
+  border: 1px solid var(--story-border);
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: var(--story-text);
+  background: rgba(255, 255, 255, 0.06);
+  resize: vertical;
+}
+
+.storyLandingFormError {
+  color: var(--story-red) !important;
+  font-weight: 760;
+}
+
+@keyframes storySpin {
+  to {
+    transform: rotate(342deg);
+  }
+}
+
+@keyframes storyBtnShimmer {
+  0% { background-position: -200% 0; }
+  60% { background-position: 200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes storyBtnPulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 18px 42px rgba(139, 92, 246, 0.42),
+      0 0 34px rgba(56, 189, 248, 0.22);
+  }
+  50% {
+    box-shadow:
+      0 18px 52px rgba(56, 189, 248, 0.6),
+      0 0 24px rgba(168, 85, 247, 0.45);
+  }
+}
+
+@keyframes storyRibbonOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes storyRibbonShimmer {
+  0%, 100% {
+    opacity: 0.76;
+    filter: saturate(1);
+  }
+  50% {
+    opacity: 1;
+    filter: saturate(1.18);
+  }
+}
+
+@keyframes storyRibbonSweep {
+  0%, 100% {
+    opacity: 0.42;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0.74;
+    transform: rotate(24deg);
+  }
+}
+
+@keyframes storyLogoGlow {
+  0%,
+  100% {
+    opacity: 0.96;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.006);
+  }
+}
+
+@keyframes storyRoadmapGlow {
+  0%,
+  18% {
+    color: var(--story-text);
+    border-color: rgba(34, 211, 238, 0.58);
+    background:
+      linear-gradient(135deg, rgba(34, 211, 238, 0.16), rgba(168, 85, 247, 0.12)),
+      rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 0 0 1px rgba(34, 211, 238, 0.16),
+      0 0 22px rgba(34, 211, 238, 0.26),
+      0 0 34px rgba(168, 85, 247, 0.16);
+    transform: translateY(-1px);
+  }
+  28%,
+  100% {
+    color: var(--story-muted);
+    border-color: var(--story-border);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+@keyframes storyWave {
+  0% {
+    opacity: 0.62;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+@keyframes storyCue {
+  0%, 100% {
+    opacity: 0.36;
+    transform: translate(-50%, -4px) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, 4px) rotate(45deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .storyLanding {
+    height: 100svh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+  }
+
+  .storyLandingTopbar {
+    min-height: 64px;
+    padding: calc(9px + env(safe-area-inset-top)) 12px 9px;
+  }
+
+  .storyLandingBrand img {
+    width: 118px;
+    max-width: 30vw;
+  }
+
+  .storyLandingControls {
+    gap: 5px;
+  }
+
+  .storyLandingControl--text {
+    min-height: 34px;
+    padding: 0 8px;
+    font-size: 0.72rem;
+  }
+
+  .storyLandingControl--deck span {
+    display: none;
+  }
+
+  .storyLandingControl--icon {
+    width: 34px;
+    min-height: 34px;
+  }
+
+  .storyLandingControl--language,
+  .storyLandingControl--version {
+    color: var(--story-cyan);
+    background: var(--story-surface);
+    border-color: var(--story-border);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    font-size: 0.72rem;
+    font-weight: 950;
+  }
+
+  .storyLanding--dark .storyLandingControl--language {
+    color: #f8fafc;
+  }
+
+  .storyLanding--light .storyLandingControl--language,
+  .storyLanding--light .storyLandingControl--version {
+    color: #1e3a8a;
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(59, 130, 246, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    font-weight: 950;
+  }
+
+  .storyLandingLanguage {
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .storyLandingLanguage button {
+    min-width: 30px;
+    min-height: 28px;
+    font-size: 0.68rem;
+  }
+
+  .storyProgress {
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    grid-auto-flow: column;
+    gap: 5px;
+    transform: translateX(-50%);
+  }
+
+  .storyProgress a {
+    width: 6px;
+    height: 6px;
+  }
+
+  .storyProgress a.isActive {
+    width: 18px;
+  }
+
+  .storyScreen {
+    min-height: 100svh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(72px + env(safe-area-inset-top)) 20px calc(38px + env(safe-area-inset-bottom));
+  }
+
+  .storyScreen::before {
+    right: 16px;
+    bottom: 52px;
+    color: rgba(34, 211, 238, 0.22);
+    font-size: 4.6rem;
+    text-shadow:
+      0 0 12px rgba(34, 211, 238, 0.42),
+      0 0 28px rgba(168, 85, 247, 0.28),
+      0 0 44px rgba(245, 197, 66, 0.12);
+  }
+
+  #story-roadmap::before {
+    bottom: 18px;
+  }
+
+  .storyScreenInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+    min-height: auto;
+  }
+
+  .storyVisual {
+    width: 100%;
+    min-height: 260px;
+    max-height: 35svh;
+    transform: translateY(-18px);
+  }
+
+  .storyScreen.isActive .storyVisual {
+    transform: translateY(-18px);
+  }
+
+  .storyVisual.storyVisual--asset {
+    min-height: 324px;
+    max-height: 41svh;
+  }
+
+  .storyVisualAsset {
+    width: min(112%, 382px);
+    max-height: 352px;
+  }
+
+  .storyVisual--hero,
+  .storyVisual--final {
+    min-height: 312px;
+    max-height: 40svh;
+  }
+
+  .storyVisualLogo,
+  .storyVisual--final img {
+    width: min(100%, 356px);
+    height: auto;
+    max-height: 260px;
+  }
+
+  .storyScreenCopy {
+    gap: 11px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .storyScreenKicker {
+    top: calc(76px + env(safe-area-inset-top));
+    left: 20px;
+    padding: 6px 10px;
+    font-size: 0.66rem;
+  }
+
+  .storyScreen h1 {
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .storyScreenThought {
+    font-size: 1.16rem;
+    line-height: 1.36;
+  }
+
+  .storyScreenDescription {
+    font-size: 1rem;
+    line-height: 1.52;
+  }
+
+  .storyLandingCta {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 0.9rem;
+  }
+
+  .storyLandingCta--primaryScreen {
+    min-height: 50px;
+    padding: 0 20px;
+    font-size: 0.96rem;
+  }
+
+  .storyFragmentNode {
+    min-width: 74px;
+    padding: 7px 8px;
+    font-size: 0.66rem;
+  }
+
+  .storyFragmentNode--1 { top: 28px; left: 28px; }
+  .storyFragmentNode--2 { top: 36px; right: 22px; }
+  .storyFragmentNode--3 { top: 104px; left: 18px; }
+  .storyFragmentNode--4 { right: 18px; bottom: 58px; }
+  .storyFragmentNode--5 { left: 62px; bottom: 24px; }
+
+  .storyPhone {
+    width: 142px;
+    min-height: 218px;
+    padding: 24px 10px 12px;
+    gap: 8px;
+  }
+
+  .storyPhoneMessage {
+    padding: 9px;
+    font-size: 0.68rem;
+  }
+
+  .storyAssemble {
+    padding: 6px 8px;
+    font-size: 0.66rem;
+  }
+
+  .storyAssemble--one { top: 36px; left: 24px; }
+  .storyAssemble--two { right: 28px; top: 62px; }
+  .storyAssemble--three { left: 34px; bottom: 34px; }
+
+  .storyRpgCard {
+    width: 198px;
+    padding: 18px;
+  }
+
+  .storyRpgCard strong {
+    font-size: 1.22rem;
+  }
+
+  .storyDice {
+    right: 34px;
+    bottom: 34px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .storyCap {
+    width: 122px;
+    height: 76px;
+    font-size: 1.35rem;
+  }
+
+  .storyMetricStack {
+    right: 20px;
+    bottom: 22px;
+  }
+
+  .storyMetricStack span,
+  .storyLayer {
+    font-size: 0.64rem;
+  }
+
+  .storyNotification {
+    padding: 15px;
+  }
+
+  .storyShield {
+    right: 30px;
+    bottom: 24px;
+    width: 60px;
+    height: 72px;
+  }
+
+  .storyUserCore {
+    width: 78px;
+    height: 78px;
+    font-size: 0.78rem;
+  }
+
+  .storyLayer {
+    padding: 6px 7px;
+  }
+
+  .storyLayer--1 { top: 28px; left: 28px; }
+  .storyLayer--2 { top: 34px; right: 18px; }
+  .storyLayer--3 { top: 94px; left: 14px; }
+  .storyLayer--4 { top: 104px; right: 24px; }
+  .storyLayer--5 { bottom: 84px; left: 22px; }
+  .storyLayer--6 { bottom: 78px; right: 12px; }
+  .storyLayer--7 { bottom: 24px; left: 52px; }
+  .storyLayer--8 { bottom: 22px; right: 26px; }
+
+  .storyVisual--roadmap {
+    gap: 14px;
+  }
+
+  .storyVisual--roadmap::after {
+    left: 30px;
+    right: 30px;
+  }
+
+  .storyVisual--roadmap span {
+    padding: 7px 9px;
+    font-size: 0.68rem;
+  }
+
+  .storyRoadmapList {
+    gap: 7px;
+  }
+
+  .storyRoadmapList li {
+    padding: 9px 10px;
+    font-size: 0.84rem;
+    line-height: 1.36;
+  }
+
+  .storyVisual--team {
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 198px;
+    padding: 22px;
+  }
+
+  .storyVisual--team span {
+    width: 74px;
+    height: 92px;
+    font-size: 0.72rem;
+  }
+
+  .storyTeamCards {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .storyTeamCards article {
+    flex: 0 0 78vw;
+    padding: 12px;
+    scroll-snap-align: start;
+  }
+
+  .storyTeamCards h2 {
+    font-size: 0.92rem;
+  }
+
+  .storyTeamCards p {
+    font-size: 0.78rem;
+    line-height: 1.42;
+  }
+
+  .storyMiniAppSignal {
+    right: 34px;
+    bottom: 34px;
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 370px) {
+  .storyLandingBrand img {
+    width: 102px;
+  }
+
+  .storyLandingControl--text:first-child {
+    display: none;
+  }
+
+  .storyScreen {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .storyScreen h1 {
+    font-size: 1.78rem;
+  }
+
+  .storyScreenThought {
+    font-size: 1.06rem;
+  }
+
+  .storyScreenDescription {
+    font-size: 0.94rem;
+  }
+}
+
+@media (max-height: 820px) and (max-width: 900px) {
+  .storyScreen {
+    padding-top: calc(66px + env(safe-area-inset-top));
+    padding-bottom: calc(30px + env(safe-area-inset-bottom));
+  }
+
+  .storyScreenInner {
+    gap: 15px;
+  }
+
+  .storyVisual {
+    min-height: 216px;
+    max-height: 30svh;
+    transform: translateY(-12px);
+  }
+
+  .storyScreen.isActive .storyVisual {
+    transform: translateY(-12px);
+  }
+
+  .storyVisual.storyVisual--asset {
+    min-height: 250px;
+    max-height: 34svh;
+  }
+
+  .storyVisualAsset {
+    width: min(110%, 338px);
+    max-height: 286px;
+  }
+
+  .storyVisual--hero,
+  .storyVisual--final {
+    min-height: 252px;
+    max-height: 35svh;
+  }
+
+  .storyScreen h1 {
+    font-size: 1.78rem;
+  }
+
+  .storyScreenThought {
+    font-size: 1.05rem;
+  }
+
+  .storyScreenDescription {
+    font-size: 0.92rem;
+    line-height: 1.44;
+  }
+
+  .storyRoadmapList li {
+    font-size: 0.78rem;
+  }
+
+  .storyTeamCards p {
+    font-size: 0.72rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .storyScreen:nth-child(even) .storyScreenInner {
+    grid-template-columns: minmax(340px, 1fr) minmax(280px, 0.9fr);
+  }
+
+  .storyScreen:nth-child(even) .storyVisual {
+    order: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storyLanding *,
+  .storyLanding *::before,
+  .storyLanding *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
