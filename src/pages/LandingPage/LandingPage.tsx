@@ -30,7 +30,7 @@ type IconName =
   | "file"
   | "send";
 
-const TELEGRAM_URL = "https://t.me/thedaoway";
+const TELEGRAM_URL = "https://t.me/the_dao_way";
 const DAO_WAY_FULL_LOGO_SRC = "/assets/landing/logo_new.png";
 const DAO_WAY_WORDMARK_SRC = "/assets/landing/dao-way-logo-wordmark.png";
 const JOURNEY_LOGO_SRCS = [
