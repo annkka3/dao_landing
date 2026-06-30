@@ -78,13 +78,13 @@ const STORAGE_KEYS = {
 // x is the same % in image and hero (both 100% width).
 // Dot positions from background image file:
 // img%:  1(38,50) 2(45,48) 3(50,45) 4(56,42) 5(60,39) 6(63,35) 7(68,31) 8(71,27) 9(75,22) 10(79,16)
-const JOURNEY_PATH = "M 35 85 C 39 83, 41 82, 42 81 C 45 80, 47 79, 50 77 C 53 76, 55 75, 57 75 C 59 73, 61 71, 63 71 C 65 67, 66 64, 67 63 C 70 58, 71 56, 72 54 C 73 49, 74 46, 74 43 C 76 38, 77 36, 77 35 C 78 31, 79 28, 79 26";
+const JOURNEY_PATH = "M 35 88 C 38.5 87, 40.5 85, 42 84 C 45 82.5, 47.5 81, 50 80 C 53 78, 55 75.5, 57 75 C 59 73, 61 71, 63 71 C 65 67, 66 64, 67 63 C 70 58, 71 56, 72 54 C 73 49, 74 46, 74 43 C 76 38, 77 36, 77 35 C 78 31, 79 28, 79 26";
 
-// Node positions shifted down by +6 to align with background lightning
+// Node positions aligned to the glowing journey path over the hero background
 const journeyNodePositions: { x: number; y: number; tooltip: "right" | "left" }[] = [
-  { x: 35, y: 85, tooltip: "right" }, // 1
-  { x: 42, y: 81, tooltip: "right" }, // 2
-  { x: 50, y: 77, tooltip: "right" }, // 3
+  { x: 35, y: 88, tooltip: "right" }, // 1
+  { x: 42, y: 84, tooltip: "right" }, // 2
+  { x: 50, y: 80, tooltip: "right" }, // 3
   { x: 57, y: 75, tooltip: "right" }, // 4
   { x: 63, y: 71, tooltip: "right" }, // 5
   { x: 67, y: 63, tooltip: "right" }, // 6
