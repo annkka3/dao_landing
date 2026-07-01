@@ -74,6 +74,7 @@ const storyContent = {
         thought: "Операционная система развития криптотрейдера.",
         cta: "Начать путешествие",
         ctaHref: "#story-market",
+        microCopy: "12 экранов • 2 минуты • путь от хаоса к системе",
       },
       {
         id: "story-market",
@@ -215,6 +216,7 @@ const storyContent = {
         thought: "The Operating System for Crypto Trader Evolution.",
         cta: "Start Your Journey",
         ctaHref: "#story-market",
+        microCopy: "12 screens • 2 minutes • from chaos to system",
       },
       {
         id: "story-market",
@@ -652,6 +654,7 @@ function StoryScreen({
               {screen.cta}
             </a>
           )}
+          {"microCopy" in screen && screen.microCopy && <p className="storyMicroCopy">{screen.microCopy}</p>}
         </div>
       </div>
       {screen.visual === "hero" && <span className="storyScrollCue" aria-hidden="true" />}

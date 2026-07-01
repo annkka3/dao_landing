@@ -1,0 +1,109 @@
+.hs-shortcut {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid color-mix(in srgb, var(--dao-accent-blue, #00e5ff), transparent 70%);
+  border-radius: var(--radius-s, 8px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015)),
+    color-mix(in srgb, var(--dao-surface, #071018), transparent 8%);
+  box-shadow: var(--dao-card-shadow, 0 14px 32px rgba(0, 0, 0, 0.24));
+  padding: 13px;
+  box-sizing: border-box;
+}
+
+.hs-shortcut::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--dao-accent-blue, #00e5ff), transparent 80%), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
+  opacity: 0.55;
+}
+
+.hs-shortcut > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hs-shortcut__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.hs-shortcut__eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--dao-accent-blue, #00e5ff);
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hs-shortcut h2 {
+  margin: 0;
+  color: var(--dao-text, #fff);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.hs-shortcut p {
+  margin: 6px 0 0;
+  color: var(--dao-text-muted, rgba(255, 255, 255, 0.58));
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.hs-shortcut__button {
+  flex-shrink: 0;
+  min-height: 34px;
+  border: 1px solid color-mix(in srgb, var(--dao-accent-blue, #00e5ff), transparent 36%);
+  border-radius: var(--radius-s, 8px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+    color-mix(in srgb, var(--dao-accent-blue, #00e5ff), transparent 84%);
+  color: var(--dao-accent-blue, #00e5ff);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 800;
+  line-height: 1.1;
+  padding: 0 11px;
+  cursor: pointer;
+}
+
+.hs-shortcut__button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.hs-shortcut__button:active:not(:disabled) {
+  background: color-mix(in srgb, var(--dao-accent-blue, #00e5ff), transparent 84%);
+}
+
+.hs-shortcut--journal {
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+.hs-shortcut--journal .hs-shortcut__button {
+  margin-top: 2px;
+}
+
+@media (max-width: 380px) {
+  .hs-shortcut {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hs-shortcut__button {
+    width: 100%;
+  }
+}

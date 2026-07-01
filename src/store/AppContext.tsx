@@ -17,7 +17,8 @@ import type { RewardInfo as JournalRewardInfo } from "../features/journal/types"
 import {
   getMiniAppLaunchDayNumber,
   getMiniAppLaunchView,
-  getTelegramStartParam,
+  getPreferredHomeScreenLaunchView,
+  getTelegramInviteStartParam,
   getTelegramInitData,
 } from "../telegram/webapp";
 
@@ -162,7 +163,7 @@ function resolveInitialStep(
   participant: ParticipantDTO | null
 ): FlowStep {
   if (!user.disclaimer_is_accepted) return "welcome";
-  if (getTelegramStartParam().trim().length >= 4) return "room";
+  if (getTelegramInviteStartParam().trim().length >= 4) return "room";
   if (!room) return "room";
 
   switch (room.status) {
@@ -213,7 +214,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         if (cancelled) return;
 
         const step = resolveInitialStep(user, room, participant);
-        const launchView = getMiniAppLaunchView();
+        const inviteStartParam = getTelegramInviteStartParam().trim();
+        const launchView = getMiniAppLaunchView() || (!inviteStartParam ? getPreferredHomeScreenLaunchView() : null);
         const launchDayNumber = getMiniAppLaunchDayNumber();
         const launchStep =
           launchView === "security" ? "security"

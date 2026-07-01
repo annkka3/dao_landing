@@ -46,13 +46,18 @@
   z-index: 0;
   content: "";
   pointer-events: none;
-  background-image:
-    radial-gradient(circle, rgba(37, 99, 235, 0.12) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(168, 85, 247, 0.1) 0 1px, transparent 1.6px);
-  background-position: 0 0, 38px 46px;
-  background-size: 96px 96px, 128px 128px;
-  opacity: 0.22;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(56, 189, 248, 0.14), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(168, 85, 247, 0.12), transparent 36%),
+    radial-gradient(circle at 62% 20%, rgba(250, 204, 21, 0.055), transparent 28%),
+    radial-gradient(circle at 28% 72%, rgba(244, 114, 182, 0.06), transparent 30%);
+  opacity: 0.78;
   mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 82%, transparent 100%);
+}
+
+.storyLanding--light::after {
+  display: none;
+  content: none;
 }
 
 .storyLanding *,
@@ -271,6 +276,7 @@
 
 .storyLandingScreens {
   position: relative;
+  z-index: 1;
 }
 
 .storyScreen {
@@ -283,6 +289,20 @@
 
 .storyLanding--light .storyScreen {
   border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+.storyLanding--light .storyScreen::after {
+  content: "";
+  position: absolute;
+  inset: 78px 34px 34px;
+  z-index: -2;
+  pointer-events: none;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 15% 22%, rgba(56, 189, 248, 0.24), transparent 19rem),
+    radial-gradient(circle at 80% 74%, rgba(168, 85, 247, 0.16), transparent 22rem),
+    radial-gradient(circle at 58% 18%, rgba(245, 197, 66, 0.1), transparent 16rem);
+  opacity: 0.72;
 }
 
 .storyScreen::before {
@@ -485,6 +505,8 @@
     contrast(1.05)
     drop-shadow(0 0 18px rgba(34, 211, 238, 0.2))
     drop-shadow(0 0 30px rgba(168, 85, 247, 0.18))
+    drop-shadow(0 0 46px rgba(34, 211, 238, 0.14))
+    drop-shadow(0 0 60px rgba(168, 85, 247, 0.1))
     drop-shadow(0 18px 42px rgba(0, 0, 0, 0.3));
   user-select: none;
   pointer-events: none;
@@ -498,13 +520,113 @@
   -webkit-backdrop-filter: none;
 }
 
+.storyLanding--light .storyVisual.storyVisual--asset::before {
+  display: block;
+  inset: 4% 2% 0;
+  z-index: 0;
+  border: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 52% 48%, rgba(124, 58, 237, 0.24), transparent 34%),
+    radial-gradient(circle at 42% 58%, rgba(56, 189, 248, 0.24), transparent 38%),
+    radial-gradient(circle at 64% 60%, rgba(245, 197, 66, 0.12), transparent 42%);
+  filter: blur(28px);
+  opacity: 0.9;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
 .storyLanding--light .storyVisualAsset {
+  position: relative;
+  z-index: 2;
   filter:
-    brightness(1.03)
-    contrast(1.06)
-    drop-shadow(0 0 14px rgba(37, 99, 235, 0.14))
-    drop-shadow(0 0 24px rgba(124, 58, 237, 0.1))
-    drop-shadow(0 14px 28px rgba(15, 23, 42, 0.1));
+    brightness(1.08)
+    contrast(1.08)
+    saturate(1.08)
+    drop-shadow(0 0 22px rgba(37, 99, 235, 0.3))
+    drop-shadow(0 0 42px rgba(124, 58, 237, 0.22))
+    drop-shadow(0 0 68px rgba(56, 189, 248, 0.18))
+    drop-shadow(0 22px 38px rgba(15, 23, 42, 0.18));
+}
+
+@media (min-width: 901px) {
+  .storyLanding--light .storyScreenInner {
+    position: relative;
+    z-index: 1;
+    width: min(1210px, 100%);
+  }
+
+  .storyLanding--light #story-hero .storyScreenInner {
+    grid-template-columns: minmax(360px, 0.96fr) minmax(400px, 1fr);
+    gap: 68px;
+  }
+
+  .storyLanding--light #story-hero .storyVisual--hero {
+    width: min(520px, 100%);
+    min-height: 500px;
+  }
+
+  .storyLanding--light #story-hero .storyVisual--hero::before {
+    display: none;
+  }
+
+  .storyLanding--light #story-hero .storyLogoRibbon {
+    display: block;
+    inset: 52px 42px;
+  }
+
+  .storyLanding--light #story-hero .storyLogoRibbon span {
+    opacity: 0.84;
+    filter: saturate(1.18);
+    animation:
+      storyRibbonShimmer 5.8s ease-in-out infinite,
+      storyHeroOrbitPulse 3.8s ease-in-out infinite;
+  }
+
+  .storyLanding--light #story-hero .storyVisualLogo {
+    width: min(112%, 448px);
+    max-height: 344px;
+    filter:
+      brightness(1.04)
+      contrast(1.08)
+      drop-shadow(0 0 16px rgba(37, 99, 235, 0.22))
+      drop-shadow(0 0 30px rgba(124, 58, 237, 0.16))
+      drop-shadow(0 20px 34px rgba(15, 23, 42, 0.14));
+    animation: storyHeroLogoBreath 5.6s ease-in-out infinite;
+  }
+
+  .storyLanding--light #story-hero .storyLandingCta--primaryScreen {
+    min-height: 62px;
+    padding: 0 32px;
+    border-color: rgba(124, 58, 237, 0.54);
+    color: #071329;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 42%),
+      linear-gradient(135deg, #67e8f9 0%, #8b5cf6 52%, #d8b4fe 100%);
+    box-shadow:
+      0 18px 42px rgba(124, 58, 237, 0.26),
+      0 0 0 1px rgba(255, 255, 255, 0.72) inset,
+      0 0 36px rgba(56, 189, 248, 0.24);
+  }
+
+  .storyLanding--light .storyVisual.storyVisual--asset {
+    width: min(600px, 100%);
+    min-height: 460px;
+  }
+
+  .storyLanding--light .storyVisual.storyVisual--asset::before {
+    display: block;
+  }
+
+  .storyLanding--light .storyVisual.storyVisual--asset::after {
+    display: none;
+    content: none;
+  }
+
+  .storyLanding--light .storyVisualAsset {
+    width: min(104%, 540px);
+    max-height: 448px;
+  }
 }
 
 .storyVisual,
@@ -546,7 +668,8 @@
 .storyScreen.isActive .storyScreenDescription,
 .storyScreen.isActive .storyRoadmapList,
 .storyScreen.isActive .storyTeamCards,
-.storyScreen.isActive .storyLandingCta {
+.storyScreen.isActive .storyLandingCta,
+.storyScreen.isActive .storyMicroCopy {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 340ms;
@@ -591,10 +714,10 @@
 .storyLanding--light .storyVisual--hero::before,
 .storyLanding--light .storyVisual--final::before {
   background:
-    radial-gradient(circle at 50% 52%, rgba(56, 189, 248, 0.18), transparent 30%),
-    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.12), transparent 50%),
-    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.07), transparent 62%);
-  filter: blur(2px) drop-shadow(0 0 20px rgba(37, 99, 235, 0.06));
+    radial-gradient(circle at 50% 52%, rgba(56, 189, 248, 0.3), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.2), transparent 50%),
+    radial-gradient(circle at 52% 55%, rgba(245, 197, 66, 0.12), transparent 62%);
+  filter: blur(2px) drop-shadow(0 0 30px rgba(37, 99, 235, 0.11));
 }
 
 .storyLogoRibbon {
@@ -698,6 +821,21 @@
     drop-shadow(0 0 14px rgba(37, 99, 235, 0.16))
     drop-shadow(0 0 26px rgba(124, 58, 237, 0.12))
     drop-shadow(0 14px 28px rgba(15, 23, 42, 0.12));
+}
+
+.storyMicroCopy {
+  margin: -4px 0 0;
+  color: var(--story-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-weight: 760;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.storyLanding--light .storyMicroCopy {
+  color: #315785;
 }
 
 .storyVisualPulse {
@@ -1349,6 +1487,18 @@
   }
 }
 
+@keyframes storyHeroOrbitPulse {
+  0%,
+  100% {
+    filter: saturate(1) drop-shadow(0 0 14px rgba(56, 189, 248, 0.12));
+    transform: scale(1);
+  }
+  50% {
+    filter: saturate(1.24) drop-shadow(0 0 26px rgba(124, 58, 237, 0.18));
+    transform: scale(1.035);
+  }
+}
+
 @keyframes storyLogoGlow {
   0%,
   100% {
@@ -1358,6 +1508,31 @@
   50% {
     opacity: 1;
     transform: scale(1.006);
+  }
+}
+
+@keyframes storyHeroLogoBreath {
+  0%,
+  100% {
+    opacity: 0.96;
+    transform: translateY(0) scale(1);
+    filter:
+      brightness(1.04)
+      contrast(1.08)
+      drop-shadow(0 0 16px rgba(37, 99, 235, 0.22))
+      drop-shadow(0 0 30px rgba(124, 58, 237, 0.16))
+      drop-shadow(0 20px 34px rgba(15, 23, 42, 0.14));
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.018);
+    filter:
+      brightness(1.08)
+      contrast(1.1)
+      drop-shadow(0 0 22px rgba(37, 99, 235, 0.3))
+      drop-shadow(0 0 40px rgba(124, 58, 237, 0.22))
+      drop-shadow(0 0 56px rgba(56, 189, 248, 0.14))
+      drop-shadow(0 24px 40px rgba(15, 23, 42, 0.16));
   }
 }
 
@@ -1408,6 +1583,10 @@
 }
 
 @media (max-width: 900px) {
+  .storyLanding--light::before {
+    opacity: 0.16;
+  }
+
   .storyLanding {
     height: 100svh;
     overflow-y: auto;

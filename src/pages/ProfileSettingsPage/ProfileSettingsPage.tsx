@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { archetypeAssets, type ArchetypeId } from "../../shared/assets/archetypeAssets";
 import { BrandHeader } from "../../shared/components/BrandHeader/BrandHeader";
+import { HomeScreenShortcut } from "../../shared/components/HomeScreenShortcut/HomeScreenShortcut";
 import { useAppContext } from "../../store/AppContext";
 import {
   getArchetypes,
@@ -263,6 +264,15 @@ export function ProfileSettingsPage({
             </span>
           </div>
         </div>
+
+        {/* ── Быстрый доступ ── */}
+        <HomeScreenShortcut
+          title="📲 Быстрый доступ"
+          body="Добавь Crypto Reality на экран телефона и открывай его как приложение."
+          buttonText="Добавить на экран"
+          tone="settings"
+          launchView="game"
+        />
 
         {/* ── Игра и безопасность ── */}
         <div className="ps__section-card">

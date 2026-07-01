@@ -8,6 +8,10 @@ declare global {
         ready: () => void;
         expand: () => void;
         openTelegramLink?: (url: string) => void;
+        addToHomeScreen?: () => void;
+        checkHomeScreenStatus?: (callback?: (status: TelegramHomeScreenStatus) => void) => void;
+        onEvent?: (eventType: string, eventHandler: (...args: unknown[]) => void) => void;
+        offEvent?: (eventType: string, eventHandler: (...args: unknown[]) => void) => void;
         showAlert?: (message: string, callback?: () => void) => void;
         showPopup?: (
           params: {
@@ -30,8 +34,46 @@ declare global {
   }
 }
 
-type ViteEnv = { VITE_DEV_TMA_INIT_DATA?: string; VITE_BOT_USERNAME?: string };
+type ViteEnv = {
+  VITE_DEV_TMA_INIT_DATA?: string;
+  VITE_BOT_USERNAME?: string;
+  VITE_CRYPTO_REALITY_MINIAPP_SHORT_NAME?: string;
+  VITE_RISK_GUARDIAN_MINIAPP_SHORT_NAME?: string;
+};
 export type MiniAppLaunchView = "day_recap" | "final" | "security" | "game" | "journal" | "market";
+export type TelegramHomeScreenStatus = "unsupported" | "unknown" | "added" | "missed";
+type InviteLinkMode = "start" | "startapp";
+type MiniAppEntryLinkMode = "shortname" | "start" | "startapp";
+const HOME_SCREEN_ENTRY_STORAGE_KEY = "dao_home_screen_entry_view";
+
+const LAUNCH_VIEW_ALIASES: Record<string, MiniAppLaunchView> = {
+  crypto: "game",
+  crypto_reality: "game",
+  game: "game",
+  journal: "journal",
+  risk: "journal",
+  risk_guardian: "journal",
+  "risk-guardian": "journal",
+  market: "market",
+  dao_market: "market",
+  "dao-market": "market",
+};
+
+const ENTRY_TO_LAUNCH_VIEW_ALIASES: Record<string, MiniAppLaunchView> = {
+  crypt: "game",
+  cr: "game",
+  crypto: "game",
+  cryptoreality: "game",
+  crypto_reality: "game",
+  "crypto-reality": "game",
+  game: "game",
+  journal: "journal",
+  risk: "journal",
+  rg: "journal",
+  riskguardian: "journal",
+  risk_guardian: "journal",
+  "risk-guardian": "journal",
+};
 
 export function getWebApp() {
   return typeof window !== "undefined" ? window.Telegram?.WebApp : undefined;
@@ -78,27 +120,56 @@ export function shareUrlToTelegram(url: string, text?: string): void {
  *      `MINIAPP_URL?invite=<code>` as the `?start=` deep-link fallback.
  * Returns "" if none are present.
  */
-export function getTelegramStartParam(): string {
+export function getTelegramRawStartParam(): string {
   const tgStartParam = getWebApp()?.initDataUnsafe?.start_param;
   if (tgStartParam) return tgStartParam;
 
   if (typeof window === "undefined") return "";
   const params = new URLSearchParams(window.location.search);
-  return params.get("tgWebAppStartParam") || params.get("invite") || "";
+  return params.get("tgWebAppStartParam") || "";
+}
+
+export function getTelegramStartParam(): string {
+  return getTelegramInviteStartParam();
+}
+
+export function getTelegramInviteStartParam(): string {
+  const rawStartParam = getTelegramRawStartParam();
+  if (rawStartParam && !parseLaunchView(rawStartParam)) return rawStartParam;
+
+  if (typeof window === "undefined") return "";
+  const params = new URLSearchParams(window.location.search);
+  return params.get("invite") || "";
 }
 
 export function getMiniAppLaunchView(): MiniAppLaunchView | null {
   if (typeof window === "undefined") return null;
   const params = new URLSearchParams(window.location.search);
-  const view = params.get("view");
   return (
-    view === "day_recap" ||
-    view === "final" ||
-    view === "security" ||
-    view === "game" ||
-    view === "journal" ||
-    view === "market"
-  ) ? view : null;
+    parseLaunchView(params.get("view")) ||
+    parseMiniAppEntryLaunchView(params.get("entry")) ||
+    parseLaunchView(getTelegramRawStartParam())
+  );
+}
+
+function parseLaunchView(value: string | null | undefined): MiniAppLaunchView | null {
+  const normalized = (value || "").trim().toLowerCase();
+  if (
+    normalized === "day_recap" ||
+    normalized === "final" ||
+    normalized === "security" ||
+    normalized === "game" ||
+    normalized === "journal" ||
+    normalized === "market"
+  ) {
+    return normalized;
+  }
+  return LAUNCH_VIEW_ALIASES[normalized] ?? null;
+}
+
+function parseMiniAppEntryLaunchView(value: string | null | undefined): MiniAppLaunchView | null {
+  const normalized = (value || "").trim().toLowerCase();
+  return ENTRY_TO_LAUNCH_VIEW_ALIASES[normalized] ?? null;
 }
 
 export function getMiniAppLaunchDayNumber(): number | null {
@@ -123,6 +194,22 @@ export function getTelegramBotLink(): string {
   return `https://t.me/${getTelegramBotUsername()}`;
 }
 
+function normalizeMiniAppShortName(value: string | undefined, fallback: string): string {
+  const normalized = (value || fallback).trim().replace(/^\//, "");
+  return normalized || fallback;
+}
+
+function getMiniAppShortName(view: MiniAppLaunchView): string | null {
+  const env = (import.meta as unknown as { env: ViteEnv }).env;
+  if (view === "game") {
+    return normalizeMiniAppShortName(env.VITE_CRYPTO_REALITY_MINIAPP_SHORT_NAME, "CryptoReality");
+  }
+  if (view === "journal") {
+    return normalizeMiniAppShortName(env.VITE_RISK_GUARDIAN_MINIAPP_SHORT_NAME, "RiskGuardian");
+  }
+  return null;
+}
+
 /**
  * Builds the shareable invite link for a room code.
  *
@@ -134,8 +221,36 @@ export function getTelegramBotLink(): string {
  * not kept in sync with a Cloudflare Quick Tunnel's URL — pass
  * mode="startapp" only once a stable production Mini App URL is set there.
  */
-export function buildInviteLink(code: string, mode: "start" | "startapp" = "start"): string {
+export function buildInviteLink(code: string, mode: InviteLinkMode = "start"): string {
   return `${getTelegramBotLink()}?${mode}=${encodeURIComponent(code)}`;
+}
+
+export function buildMiniAppEntryLink(view: MiniAppLaunchView, mode: MiniAppEntryLinkMode = "shortname"): string {
+  if (mode === "shortname") {
+    const shortName = getMiniAppShortName(view);
+    if (shortName) return `${getTelegramBotLink()}/${shortName}`;
+    return `${getTelegramBotLink()}?startapp=${encodeURIComponent(view)}`;
+  }
+  return `${getTelegramBotLink()}?${mode}=${encodeURIComponent(view)}`;
+}
+
+export function setPreferredHomeScreenLaunchView(view: MiniAppLaunchView): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(HOME_SCREEN_ENTRY_STORAGE_KEY, view);
+  } catch (err) {
+    console.warn("Could not persist home-screen entry view", err);
+  }
+}
+
+export function getPreferredHomeScreenLaunchView(): MiniAppLaunchView | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return parseLaunchView(window.localStorage.getItem(HOME_SCREEN_ENTRY_STORAGE_KEY));
+  } catch (err) {
+    console.warn("Could not read home-screen entry view", err);
+    return null;
+  }
 }
 
 export function showTelegramAlert(message: string): boolean {
@@ -168,6 +283,64 @@ export function showTelegramPopup(params: {
     console.warn("Telegram showPopup failed", err);
     return false;
   }
+}
+
+export function checkTelegramHomeScreenStatus(
+  callback: (status: TelegramHomeScreenStatus) => void
+): boolean {
+  const webApp = getWebApp();
+  if (!webApp?.checkHomeScreenStatus) {
+    callback("unsupported");
+    return false;
+  }
+
+  try {
+    webApp.checkHomeScreenStatus(callback);
+    return true;
+  } catch (err) {
+    console.warn("Telegram checkHomeScreenStatus failed", err);
+    callback("unsupported");
+    return false;
+  }
+}
+
+export function addTelegramMiniAppToHomeScreen(): boolean {
+  const webApp = getWebApp();
+  if (!webApp?.addToHomeScreen) return false;
+
+  try {
+    webApp.addToHomeScreen();
+    return true;
+  } catch (err) {
+    console.warn("Telegram addToHomeScreen failed", err);
+    return false;
+  }
+}
+
+export function onTelegramHomeScreenAdded(handler: () => void): () => void {
+  const webApp = getWebApp();
+  if (!webApp?.onEvent) return () => undefined;
+
+  const eventHandler = () => handler();
+  webApp.onEvent("homeScreenAdded", eventHandler);
+  return () => webApp.offEvent?.("homeScreenAdded", eventHandler);
+}
+
+export function onTelegramHomeScreenChecked(
+  handler: (status: TelegramHomeScreenStatus) => void
+): () => void {
+  const webApp = getWebApp();
+  if (!webApp?.onEvent) return () => undefined;
+
+  const eventHandler = (status: unknown) => {
+    if (isTelegramHomeScreenStatus(status)) handler(status);
+  };
+  webApp.onEvent("homeScreenChecked", eventHandler);
+  return () => webApp.offEvent?.("homeScreenChecked", eventHandler);
+}
+
+function isTelegramHomeScreenStatus(value: unknown): value is TelegramHomeScreenStatus {
+  return value === "unsupported" || value === "unknown" || value === "added" || value === "missed";
 }
 
 export function triggerHaptic(

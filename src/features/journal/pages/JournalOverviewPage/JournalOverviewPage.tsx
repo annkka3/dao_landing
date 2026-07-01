@@ -1,4 +1,5 @@
 import { Button } from "../../../../shared/ui/Button/Button";
+import { HomeScreenShortcut } from "../../../../shared/components/HomeScreenShortcut/HomeScreenShortcut";
 import { ApiError } from "../../../../api/errors";
 import { useJournalOverview } from "../../hooks";
 import {
@@ -41,6 +42,14 @@ export function JournalOverviewPage({
         </>
       }
     >
+      <HomeScreenShortcut
+        title="📓 Risk Guardian"
+        body="Хочешь открывать журнал в один тап?"
+        buttonText="Добавить Journal на экран"
+        tone="journal"
+        launchView="journal"
+      />
+
       {overview.isLoading ? (
         <JournalLoadingState />
       ) : overview.isError ? (

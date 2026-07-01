@@ -8,7 +8,7 @@ import { ApiError } from "../../api/errors";
 import { friendlyErrorMessage } from "../../api/errorMessages";
 import type { ParticipantDTO, RoomDTO } from "../../api/types";
 import { useAppContext } from "../../store/AppContext";
-import { getTelegramStartParam } from "../../telegram/webapp";
+import { getTelegramInviteStartParam } from "../../telegram/webapp";
 import "./RoomEntryPage.css";
 
 export interface RoomEntryPageProps {
@@ -40,7 +40,7 @@ export function RoomEntryPage({
   const [mode, setMode] = useState<RoomMode>("regular");
   // Pre-fill from an invite/start_param if the app was opened via an invite
   // link (?invite=, ?tgWebAppStartParam=, or Telegram's own start_param).
-  const [inviteCode, setInviteCode] = useState(() => getTelegramStartParam());
+  const [inviteCode, setInviteCode] = useState(() => getTelegramInviteStartParam());
   const [hasFastForwardFlag] = useState(fastForwardAvailable);
   const showFastForward = Boolean(state.user?.can_fast_forward || hasFastForwardFlag);
 
